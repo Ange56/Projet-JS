@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <link href="../css/styleaccueil.css" rel="stylesheet"> <!--on relie le fichier html au fichier css correspondant-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"><!--importation des icones google-->
+        <link rel="preconnect" href="https://fonts.googleapis.com"><!--importation des polices de google-->
+        <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Marko+One&family=Roboto&family=Stint+Ultra+Expanded&display=swap" rel="stylesheet"><!--importation de Roboto et Lalezar-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"><!--importation des icones de fontawesome-->
+        <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Lalezar&family=Marko+One&family=Roboto&display=swap" rel="stylesheet"><!--importation de Audiowide-->
+        <title> Accueil </title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul id="menu"><!--création d'un menu-->
+                    <li><img src="images/LabISEN.png" alt="logo officiel" height="70"></li>
+                    <li><a href="accueil.html" class="current bouton"><span class="material-icons icon-menu">home</span> &ensp;Accueil</a></li>
+                    <li class="dropbutton"><!--menu déroulant-->
+                        <a class="bouton"><span class="material-icons icon-menu">search</span> &ensp;Recherche<span class="material-icons icon-menu drop">arrow_drop_down</span></a>
+                        <div class="dropdown-menu">
+                            <a href="thematique_ver-finale.html" class="sous-bouton separateur"><div class="rectangle"></div>Thématiques de recherche</a>
+                            <a href="plateformes.html" class="sous-bouton"><div class="rectangle"></div>Plateformes technologiques</a>
+                        </div>
+                    </li>
+                    <li><a href="membres.html" class="bouton"><span class="material-icons icon-menu">groups</span> &ensp;Membres</a></li>
+                    <li><a href="projet.html" class="bouton"><span class="material-icons icon-menu">emoji_objects</span> &ensp;Projets</a></li>
+                    <li><a href="publications.html" class="bouton"><span class="material-icons icon-menu">edit</span> &ensp;Publications</a></li>
+                    <li><a href="partenaires.html" class="bouton"><span class="material-icons icon-menu">handshake</span> &ensp;Partenaires</a></li>
+                    <li class="dropbutton"><!--menu déroulant-->
+                        <a class="bouton"><span class="material-icons icon-menu">add_circle_outline</span> &ensp;Info et contacts<span class="material-icons icon-menu drop">arrow_drop_down</span></a>
+                        <div class="dropdown-menu">
+                            <a href="contact.html" class="sous-bouton separateur"><div class="rectangle"></div>Contactez-nous</a>
+                            <a href="plandacces.html" class="sous-bouton separateur"><div class="rectangle"></div>Plan d’accès</a>
+                            <a href="offres_emploi.html" class="sous-bouton"><div class="rectangle"></div>Offres d’emploi</a>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+        <div id="page"><!--corps de la page-->
+            <br>
+            <h1>Notre équipe de recherche</h1>
+            <p>
+                <b>« Vision et Analyse de Données »</b> est une équipe du laboratoire L@bISEN de l’ISEN Yncréa Ouest.
+                L’équipe mène une activité de R&D pour la conception de plateformes technologiques d’observations et 
+                d’analyses à partir de réseaux de capteurs intelligents.
+            </p>
+            <br>
+            <div id="bouton-axe"><!--bouton qui renvoie vers la page thématiques-->
+                <a href="thematiques.html">Voir nos axes de recherche</a>
+            </div>
+            <br>
+            <br>
+            <h1>Compétences de l'équipe</h1>
+            <img src="images/competences.jpg" alt="competences" id="img-competences">
+            <br>
+            <br>
+            <h1>Fil d'actualités</h1>
+            <p>
+                04/2022 : Appel à candidature pour une thèse CIFRE avec l’entreprise KARDHAM (<a href="offres.html" class="info">plus d’informations</a>)<br><br>
+                02/2022 : Ghatass AKKAD rejoint notre équipe en tant qu’Enseignant Chercheur<br><br>
+                12/2021 : Appel à candidature pour un Postdoc avec l’entreprise ACOME (<a href="offres.html" class="info">plus d’informations</a>)<br><br>
+            </p>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+
+        <footer>
+            <br>
+            <br>
+            <table cellpadding="10"><!--tableau pour organiser le footer-->
+                <tr>
+                    <th class="col">Brest</th>
+                    <th rowspan="3" class="vide"></th>
+                    <th class="col">Nantes</th>
+                    <th rowspan="3" class="vide"></th>
+                    <th class="col">Caen</th>
+                    <th rowspan="3" class="vide"></th>
+                    <th class="col">Rennes</th>
+                    <th rowspan="3" class="vide"></th>
+                    <th class="col">Paris</th>
+                </tr>
+                <tr>
+                    <td colspan="5"></td>
+                </tr>
+                <tr>
+                    <td class="col">
+                        Adresse : CS 42807 20 rue Cuirassé Bretagne 29200 Brest
+                        <br>Téléphone : +33 2 98 03 84 00
+                    </td>
+                    <td class="col">
+                        Adresse : 33 Q Avenue du Champ de Manœuvres 44470 Carquefou
+                        <br>Téléphone : +33 2 30 13 05 60
+                    </td>
+                    <td class="col">
+                        Adresse : 8 Avenue Croix Guérin 14000 Caen
+                        <br>Téléphone : +33 2 30 31 03 20
+                    </td>
+                    <td class="col">
+                        Adresse : Campus RSB 2 rue Robert d’Abrissel 35065 Rennes
+                        <br>Téléphone : +33 2 30 13 02 50
+                    </td>
+                    <td class="col">
+                        Adresse : Campus Saint Jean 5 Rue Maurice Labrousse 92160 Antony
+                        <br>Téléphone : +33 2 98 03 84 00
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <table id="tab2" cellpadding="10"><!--autre tableau pour avoir seulement 3 colonnes avec nos noms et liens vers linkedin-->
+                <tr>
+                    <td class="noms">Tallulah DRENO-TABOT<span class="lien-icon"><a class="linkedin" target="_blank" href="https://www.linkedin.com/in/tallulah-dreno-tabot-9406842a3/"><i class="fa-brands fa-linkedin-in"></i></a></span></td>
+                    <td class="noms">Angèle STUTZ<span class="lien-icon"><a class="linkedin" target="_blank" href="https://www.linkedin.com/in/ang%C3%A8le-stutz-2b76832a3/"><i class="fa-brands fa-linkedin-in"></i></a></span></td>
+                    <td class="noms">Asma BEN CHAABANE<span class="lien-icon"><a class="linkedin" target="_blank" href="https://www.linkedin.com/in/asma-ben-chaabane-2a054b2a3/"><i class="fa-brands fa-linkedin-in"></i></a></span></td>
+                </tr>
+            </table>
+            <br>
+            <br>
+        </footer>
+
+    </body>
+</html>
