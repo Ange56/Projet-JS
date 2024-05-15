@@ -126,6 +126,8 @@ p{
 .paragraph{
     color: #000000; /* Paragraph text color */
     border: 5px solid #a00000; /* Red border */
+    background-color: #c3c0c0;
+    border-radius: 40px;
     padding: 10px; 
     margin-bottom: 20px; 
 }
