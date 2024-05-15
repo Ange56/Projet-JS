@@ -167,6 +167,22 @@ h2{
 }
 #li{
     font-family: 'Lalezar';
+    
+}
+
+#list1{
+    list-style-type: circle;
+    list-style-position: inside;
+}
+
+#list2{
+    list-style-type: circle;
+    list-style-position: inside;
+}
+
+#list3{
+    list-style-type: circle;
+    list-style-position: inside;
 }
 
 #ghost_text{
