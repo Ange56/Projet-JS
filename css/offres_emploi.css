@@ -99,10 +99,11 @@ nav ul li{
     background-color:black;
 }
 
+/* fin css header*/
 
 h1{
     display: flex;
-    flex-direction: row;
+    /*flex-direction: row;*/
     justify-content: center;
     font-family: 'Lalezar';
     font-size: 30px;
@@ -110,7 +111,7 @@ h1{
 .para{
     font-family: 'Lalezar';
     display: flex;
-    flex-direction: row;
+    /*flex-direction: row;*/
     justify-content: center;
     background-color: #c3c0c0;
     border-radius: 40px;
@@ -120,13 +121,47 @@ h1{
 .one{
     
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     background-color: #c3c0c0;
     border-radius: 40px;
+    text-align: center;
+}
 
+.two{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #c3c0c0;
+    border-radius: 40px;
+    text-align: center;
 
 }
+
+.three{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #c3c0c0;
+    border-radius: 40px;
+    text-align: center;
+
+}
+
+
+.all{
+    margin: 0;
+    padding: 20px;
+} 
+
+.para, .one, .two, .three {
+    max-width: 600px; 
+    margin: 0 auto;
+}
+
+
 h2{
     font-family: 'Lalezar';
 }
@@ -138,16 +173,7 @@ h2{
     color:grey ;
     font-family: 'Lalezar';
 }
-.three{
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: #c3c0c0;
-    border-radius: 40px;
 
-
-}
 
 
 

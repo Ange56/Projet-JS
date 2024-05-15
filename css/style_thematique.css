@@ -108,20 +108,13 @@ nav ul li{
 
 
 .all{
-    
     margin: 0;
     padding: 20px;
-}   
+} 
+
 .paragraph-container {
     max-width: 600px; 
     margin: 0 auto;
-}
-
-.paragraph {
-    margin-bottom: 20px; 
-}
-.paragraph h2 {
-    color: #000000; 
 }
 
 p{
@@ -129,13 +122,17 @@ p{
     font-family: 'Lalezar';
     justify-content: center;
 }
+
 .paragraph{
     color: #000000; /* Paragraph text color */
     border: 5px solid #a00000; /* Red border */
     padding: 10px; 
+    margin-bottom: 20px; 
 }
+
 h2{
     text-align: center;
+    color: #000000; 
 }
 
 
