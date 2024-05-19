@@ -9,16 +9,13 @@ body{/*arrière plan de couleur grise, pas de marges*/
 
 
 /* Menu de navigation*/
-header{
-    display : none;
-}
 nav{/*couleur de l'arrière plan et du texte*/
     background-color: black;
     color: white;
 }
 #menu{/*on veut que le menu soit un minimum responsive*/
     list-style-type: none;/*on enlève les puces des listes*/
-    display: flex;/*permet le responsive*/
+    display: none;/*permet le responsive*/
     justify-content: space-between;/*les boutons du menu prennent toute la place*/
     text-align: center;
     margin-top: 0;/*aucun espace avant le menu*/
@@ -133,7 +130,7 @@ p{
     margin: auto;/*on la centre*/
 }
 #page{/*contenu de la page*/
-    display: none;/*pour que le corps de page soit responsive*/
+    display: none;/* flex avant pour que le corps de page soit responsive*/
     flex-direction: column;
     padding-right: 10%;/*marge à droite*/
     padding-left:10%;/*marge à gauche*/
@@ -173,12 +170,10 @@ p{
 
 /*FOOTER*/
 footer{
-    display: none;
-    background-color: black;/*couleur de fond du footer*/
     font-family: 'Roboto', sans-serif;
 }
 table{
-    display: flex;/*tableau responsive*/
+    display: none;/*tableau responsive*/
     flex-direction: column;
     padding-right: 10%;
     padding-left:10%;
