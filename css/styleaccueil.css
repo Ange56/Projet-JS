@@ -9,7 +9,9 @@ body{/*arrière plan de couleur grise, pas de marges*/
 
 
 /* Menu de navigation*/
-
+header{
+    display : none;
+}
 nav{/*couleur de l'arrière plan et du texte*/
     background-color: black;
     color: white;
@@ -131,7 +133,7 @@ p{
     margin: auto;/*on la centre*/
 }
 #page{/*contenu de la page*/
-    display: flex;/*pour que le corps de page soit responsive*/
+    display: none;/*pour que le corps de page soit responsive*/
     flex-direction: column;
     padding-right: 10%;/*marge à droite*/
     padding-left:10%;/*marge à gauche*/
@@ -171,6 +173,7 @@ p{
 
 /*FOOTER*/
 footer{
+    display: none;
     background-color: black;/*couleur de fond du footer*/
     font-family: 'Roboto', sans-serif;
 }
