@@ -18,17 +18,9 @@ function loader(){
     footer.style.backgroundColor = 'black';/*couleur de fond du footer*/
 }
 function removeBootstrapLinks() {
-    // Supprimer les liens Bootstrap CSS
-    let bootstrapCSS = document.querySelector('link[href*="bootstrap"]');
-    if (bootstrapCSS) {
-        bootstrapCSS.remove();
-    }
+    let bootstrapElements = document.querySelectorAll('.bootstrap');
 
-    // Supprimer les liens Bootstrap JS
-    let bootstrapJS = document.querySelector('script[src*="bootstrap"]');
-    if (bootstrapJS) {
-        bootstrapJS.remove();
-    }
+    bootstrapElements.forEach(element => element.remove());
 }
 
 
@@ -143,8 +135,33 @@ function updateHour(){//affiche l'heure
 }
 
 
+
+
+
+function updateChronometer() {
+    let tempsPasse = (Date.now() - startTime) / 1000;
+    chrono.textContent = elapsedTime;
+}
+
+function chronometer(){
+    let debut = Date.now();
+    let chrono = document.getElementById('time');
+   
+    setInterval(chronometer, 1000);
+}
+
+
+
+
+
+
+
+
+
+
 function main(){//appelle toutes les fonctions
     load();
+    chronometer();//commencer le chrono
     init();//initialise les chiffres en sombre
     updateHour();//affiche l'heure une première fois
     points();//affiche les points une première fois

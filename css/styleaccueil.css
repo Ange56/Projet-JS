@@ -268,7 +268,7 @@ table, td, th{/*bordure du tableau*/
 
 .clock > .colon {
     font-size: 12.5px;
-    height: 20px;
+    height: 15px;
     width: 5px;
     top: -9.375px;
     color: white;
