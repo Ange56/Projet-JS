@@ -279,3 +279,10 @@ table, td, th{/*bordure du tableau*/
     transition: all 0.2s linear;
     opacity: 0.2;
 }
+
+
+/*----chrono----*/
+#chrono{
+    font-size: 0.8em;
+    width : 100px;
+}

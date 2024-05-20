@@ -3,9 +3,10 @@ function loader(){
     //cacher le body et après le montrer en modifiant css avec js
 
     removeBootstrapLinks();
+    
+    chronometer();//commencer le chrono
 
     let load = document.getElementById("reload");
-    console.log(load);
     load.style.display = 'none';
     let page = document.getElementById("page");
     page.style.display = 'flex';
@@ -138,16 +139,25 @@ function updateHour(){//affiche l'heure
 
 
 
-function updateChronometer() {
-    let tempsPasse = (Date.now() - startTime) / 1000;
-    chrono.textContent = elapsedTime;
+function newChrono(debut) {
+    let chrono = document.getElementById('time');
+    let temps = (Date.now() - debut) / 1000;
+    temps = parseInt(temps);//transforme la chaine de caractères en entiers en ne prenant que le nombre avant virgule
+    
+    
+    let minutes = parseInt(temps / 60); //arrondi au chiffre avant la virgule
+    let secondes = temps % 60;
+    secondes = secondes < 10 ? '0' + secondes : secondes;
+
+    let tempsFinal = minutes + ':' + secondes;
+    chrono.textContent = tempsFinal;
 }
 
 function chronometer(){
     let debut = Date.now();
-    let chrono = document.getElementById('time');
-   
-    setInterval(chronometer, 1000);
+    setInterval(function() {
+        newChrono(debut);
+    }, 1000);
 }
 
 
@@ -161,7 +171,6 @@ function chronometer(){
 
 function main(){//appelle toutes les fonctions
     load();
-    chronometer();//commencer le chrono
     init();//initialise les chiffres en sombre
     updateHour();//affiche l'heure une première fois
     points();//affiche les points une première fois
