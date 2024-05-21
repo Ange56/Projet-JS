@@ -8,98 +8,124 @@ body{
 
 
 
-/* menu de navigation*/
-nav{
+
+
+/* Menu de navigation*/
+
+nav{/*couleur de l'arrière plan et du texte*/
     background-color: black;
     color: white;
 }
-#menu{
-    list-style-type: none;
-    display: flex;
-    justify-content: space-between;
+#menu{/*on veut que le menu soit un minimum responsive*/
+    list-style-type: none;/*on enlève les puces des listes*/
+    display: flex;/*permet le responsive*/
+    justify-content: space-between;/*les boutons du menu prennent toute la place*/
     text-align: center;
-    margin-top: 0;
-    padding-left:2%;
+    margin-top: 0;/*aucun espace avant le menu*/
+    padding-left:2%;/*petite marge dans le menu pour pas que les boutons soient collés*/
     padding-right:2%;
     align-items: center;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 15px;/*on redimensionne la police*/
 }
-/*il faudrait aligner les icones bien comme il faut et aussi faire l'espacement correctement entre le texte et l'icone*/
-nav ul li img{
+nav ul li img{/*on place l'image*/
     display: flex;
     padding-top: 5px;
     padding-bottom: 5px;
 }
-.bouton:hover{/*on peut enlever des trucs plus bas*/
+.bouton:hover{/*changement de couleur du bouton si la souris survole*/
     background-color: #CA0000;
 }
-#menu .bouton{
+#menu .bouton{/*on paramètre les boutons*/
     color: white;
-    text-decoration: none;
+    text-decoration: none;/*on enlève le soulignement par défaut du lien de redirection*/
     display: block;
     padding-left: 5px;
     padding-right: 5px;
     padding-top: 15px;
     padding-bottom: 15px;
-    border-radius: 10px;
-    border-style: solid;
+    border-radius: 10px;/*coins arrondis*/
+    border-style: solid;/*bordure extérieure*/
     border-width: 1px;
     border-color: #CA0000;
     align-items: center;
-    box-sizing: content-box;
+    box-sizing: content-box;/*la taille du bouton dépend du contenu*/
 }
-.material-icons.icon-menu { 
+.material-icons.icon-menu{ /*on redimensionne les icones et on les aligne*/
     font-size: 15px; 
     vertical-align: text-top;
 }
-.drop{/*icons*/
+.drop{/*icone triangle alignée différemment*/
     vertical-align: middle;
 }
-.current{
+.current{/*quand on est sur cette page le bouton est rouge*/
     background-color: red;
 }
 nav ul li{
     vertical-align: middle;
 }
-.dropdown-menu{/*cacher le menu deroulant*/
-    display: none;
-    position: absolute; /*reviser ça*/
-    padding-top: 3px;
+.dropdown-menu{/*menu deroulant*/
+    display: none;/*cacher le menu deroulant*/
+    position: absolute;/*sa position dépend de la position de son parent*/
+    padding-top: 3px;/*espace avec le parent*/
 }
-.sous-bouton {
+.sous-bouton {/*boutons du sous-menu*/
     color: #fff;
     padding: 10px;
     text-decoration: none;
-    display: block;
+    display: block;/*crée des boites*/
     text-align: center;
     background-color: #CA0000;
-    position: relative;
+    position: relative;/*sa position dépend de sa position initiale*/ 
 }
-.separateur{/*attention mettre un id si pas besoin de class*/
+.separateur{/*sépare les boutons du sous-menu*/
     border-color: black;
     border-bottom-style: solid;
     border-width: 1px;
 }
-.dropbutton:hover .dropdown-menu{
-    display: block;
+.dropbutton:hover .dropdown-menu{/*si le bouton qui a un menu déroulant est survolé alors on affiche le menu déroulant*/
+    display: block;/*permet d'afficher le menu déroulant*/
     border-color: black;
     border-style: solid;
     border-width: 1px;
 }
-.dropbutton:hover .bouton {
+.dropbutton:hover .bouton {/*si le menu est survolé le bouton du menu reste rouge*/
     background-color: #CA0000;
 }
-.rectangle {
-    height: 100%;
-    width: 5px;
+.rectangle {/*création d'un rectangle*/
+    height: 100%;/*taille par rapport à ses parents*/
+    width: 5px;/*largeur*/
     background-color: #CA0000;
-    position: absolute;
-    left: 0;
+    position: absolute;/*sa position dépend de celle de ses parents*/
+    left: 0;/*on le colle au bord*/
     top: 0;
     bottom: 0;
 }
-.sous-bouton:hover .rectangle{
+.sous-bouton:hover .rectangle{/*si le bouton du sous-menu est survolé, on change la couleur du rectangle*/
     background-color:black;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
