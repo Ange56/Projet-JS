@@ -99,6 +99,10 @@ nav ul li{
     background-color:black;
 }
 
+
+
+
+
 /*corps de la page*/
 
 
@@ -111,7 +115,7 @@ h1{              /*on définit la police des titres1*/
 #grid-container{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(4, auto);
+    grid-template-rows: repeat(5, auto);
     grid-gap: 10px;
     width: 80%;
     margin: 0 auto;
@@ -171,29 +175,14 @@ h1{              /*on définit la police des titres1*/
     grid-column-start: 4;
     grid-column-end: 5;
 }
-
-/*
-#internationaux{
-    grid-row-start: 6;
-    grid-row-end: 7;
-    grid-column-start: 3;
-    grid-column-end: 4;
-
-}
 #maroc{
-    grid-row-start: 7;
-    grid-row-end: 8;
+    grid-row-start: 5;
+    grid-row-end: 6;
     grid-column-start:2;
     grid-column-end: 3;
 }
-#ENIS{
-    grid-row-start: 7;
-    grid-row-end: 8;
-    grid-column-start: 4;
-    grid-column-end: 5;
-}
 
-*/
+
 
 
 
@@ -278,81 +267,6 @@ table, td, th{/*bordure du tableau*/
 +---+---+---+---+---+
 |   |   |   |   |   |
 +---+---+---+---+---+
-
-
-
-
-    
-#UBO{
-    grid-row-start: 2;
-    grid-row-end: 3;
-    grid-column-start: 2;
-    grid-column-end: 3;
-}
-#castel{
-    grid-row-start: 2;
-    grid-row-end: 3;
-    grid-column-start: 4;
-    grid-column-end: 5;
-
-}
-#malakoff{
-    grid-row-start: 3;
-    grid-row-end: 4;
-    grid-column-start: 2;
-    grid-column-end: 3;
-}
-#acome{
-    grid-row-start: 3;
-    grid-row-end: 4;
-    grid-column-start: 4;
-    grid-column-end: 5;
-}
-#erc{
-    grid-row-start: 4;
-    grid-row-end: 5;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    
-}
-#kardham{
-    grid-row-start: 5;
-    grid-row-end: 6;
-    grid-column-start: 2;
-    grid-column-end: 3;
-}
-#generix{
-    grid-row-start: 4;
-    grid-row-end: 5;
-    grid-column-start: 4;
-    grid-column-end: 5;
-}
-#thales{
-    grid-row-start: 5;
-    grid-row-end: 6;
-    grid-column-start: 4;
-    grid-column-end: 5;
-}
-#internationaux{
-    grid-row-start: 6;
-    grid-row-end: 7;
-    grid-column-start: 3;
-    grid-column-end: 4;
-
-}
-#maroc{
-    grid-row-start: 7;
-    grid-row-end: 8;
-    grid-column-start:2;
-    grid-column-end: 3;
-}
-#ENIS{
-    grid-row-start: 7;
-    grid-row-end: 8;
-    grid-column-start: 4;
-    grid-column-end: 5;
-}
-
 
 
 */
