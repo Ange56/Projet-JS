@@ -110,9 +110,178 @@ h1{              /*on définit la police des titres1*/
 }
 #grid-container{
     display: grid;
-    grid-template-columns: 184px 366px 1fr 262px 1fr ;
-    grid-template-rows: 177px 190px 401px 238px 215px 185px 196px 194px 1fr  ;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-gap: 10px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    /*grid-template-columns: 184px 366px 1fr 262px 1fr ;
+    grid-template-rows: 177px 190px 401px 238px 215px 185px 196px 194px 1fr  ;*/
+
 }
+    
+#UBO{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+#castel{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 5;
+
+}
+#malakoff{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+#acome{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
+#erc{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    
+}
+#generix{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
+#kardham{
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+#thales{
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
+
+/*
+#internationaux{
+    grid-row-start: 6;
+    grid-row-end: 7;
+    grid-column-start: 3;
+    grid-column-end: 4;
+
+}
+#maroc{
+    grid-row-start: 7;
+    grid-row-end: 8;
+    grid-column-start:2;
+    grid-column-end: 3;
+}
+#ENIS{
+    grid-row-start: 7;
+    grid-row-end: 8;
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
+
+*/
+
+
+
+/*FOOTER*/
+footer{
+    background-color: black;/*couleur de fond du footer*/
+    font-family: 'Roboto', sans-serif;
+}
+table{
+    display: flex;/*tableau responsive*/
+    flex-direction: column;
+    padding-right: 10%;
+    padding-left:10%;
+    table-layout: fixed;/*la colonne du tableau de s'ajuste pas à la taille du contenu*/
+    border-color: black;
+    font-size: small ;
+}
+.col{
+    width:19%;/*taille des colonnes en fonction de la taille de l'écran*/
+    border-radius: 10px;
+    border-color: #CA0000;
+}
+.vide{/*on veut des colonnes qui séparent vides*/
+    width: 1.25%;
+    border-color: black;
+}
+td .col{/*le texte est aligné à gauche*/
+    text-align: left;
+    padding: 20%;
+}
+.noms{/*les noms des colonnes sont alignés au centre*/
+    text-align: center;
+    border-radius: 10px;
+    border-color: #CA0000;
+}
+#tab2 td{
+    width: 10%;
+}
+table td,th,tr{/*couleurs pour les lignes du tableau qu'on ne veut pas voir*/
+    color: white;
+    border-color: black;
+}
+.lien-icon{/*les icones linkedin sont sur la meme ligne que le texte*/
+    display:inline-block;
+    margin-left: 8px;
+}
+.linkedin{/*on enlève les paramètres par défaut des liens*/
+    text-decoration: none;
+    color: white;
+}
+
+table, td, th{/*bordure du tableau*/
+    border: 1px solid;
+}
+
+
+
+
+/*
++---+---+---+---+---+
+|   |   |   |   |   |
++---+---+---+---+---+
+|   | U |   | C |   |
+|   | B |   | a |   |
+|   | O |   | s |   |
++---+---+---+---+---+
+|   | M |   | a |   |
+|   | a |   | l |   |
+|   | l |   | a |   |
++---+---+---+---+---+
+|   | E |   | G |   |
+|   | R |   | e |   |
+|   | C |   | n |   |
++---+---+---+---+---+
+|   | K |   | T |   |
+|   | a |   | h |   |
+|   | r |   | a |   |
++---+---+---+---+---+
+|   |   |   |   |   |
++---+---+---+---+---+
+|   |   |   |   |   |
++---+---+---+---+---+
+|   |   |   |   |   |
++---+---+---+---+---+
+
+
+
+
     
 #UBO{
     grid-row-start: 2;
@@ -186,57 +355,4 @@ h1{              /*on définit la police des titres1*/
 
 
 
-
-
-/*FOOTER*/
-footer{
-    background-color: black;/*couleur de fond du footer*/
-    font-family: 'Roboto', sans-serif;
-}
-table{
-    display: flex;/*tableau responsive*/
-    flex-direction: column;
-    padding-right: 10%;
-    padding-left:10%;
-    table-layout: fixed;/*la colonne du tableau de s'ajuste pas à la taille du contenu*/
-    border-color: black;
-    font-size: small ;
-}
-.col{
-    width:19%;/*taille des colonnes en fonction de la taille de l'écran*/
-    border-radius: 10px;
-    border-color: #CA0000;
-}
-.vide{/*on veut des colonnes qui séparent vides*/
-    width: 1.25%;
-    border-color: black;
-}
-td .col{/*le texte est aligné à gauche*/
-    text-align: left;
-    padding: 20%;
-}
-.noms{/*les noms des colonnes sont alignés au centre*/
-    text-align: center;
-    border-radius: 10px;
-    border-color: #CA0000;
-}
-#tab2 td{
-    width: 10%;
-}
-table td,th,tr{/*couleurs pour les lignes du tableau qu'on ne veut pas voir*/
-    color: white;
-    border-color: black;
-}
-.lien-icon{/*les icones linkedin sont sur la meme ligne que le texte*/
-    display:inline-block;
-    margin-left: 8px;
-}
-.linkedin{/*on enlève les paramètres par défaut des liens*/
-    text-decoration: none;
-    color: white;
-}
-
-table, td, th{/*bordure du tableau*/
-    border: 1px solid;
-}
-
+*/
