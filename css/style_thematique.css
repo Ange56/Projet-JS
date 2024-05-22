@@ -108,34 +108,34 @@ nav ul li{
 
 
 .all{
-    
     margin: 0;
     padding: 20px;
-}   
+} 
+
 .paragraph-container {
     max-width: 600px; 
     margin: 0 auto;
 }
 
-.paragraph {
-    margin-bottom: 20px; 
-}
-.paragraph h2 {
-    color: #000000; 
-}
-
 p{
     color: #000000; /* Paragraph text color */
-    font-family: 'Lalezar';
-    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
 }
+
 .paragraph{
     color: #000000; /* Paragraph text color */
     border: 5px solid #a00000; /* Red border */
+    background-color: #c3c0c0;
+    border-radius: 40px;
     padding: 10px; 
+    margin-bottom: 20px; 
 }
+
 h2{
     text-align: center;
+    color: #000000;
+    font-family: 'Audiowide'; 
 }
 
 
