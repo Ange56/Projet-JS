@@ -119,8 +119,8 @@ nav ul li{
 
 p{
     color: #000000; /* Paragraph text color */
-    font-family: 'Lalezar';
-    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
 }
 
 .paragraph{
@@ -134,7 +134,8 @@ p{
 
 h2{
     text-align: center;
-    color: #000000; 
+    color: #000000;
+    font-family: 'Audiowide'; 
 }
 
 

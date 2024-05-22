@@ -4,7 +4,7 @@ body{/*arrière plan de couleur grise, pas de marges*/
     background-color: #E4E4E4;
 }
 
-/* Menu de navigation*/
+/*---------------- Menu de navigation--------------------*/
 
 nav{/*couleur de l'arrière plan et du texte*/
     background-color: black;
@@ -99,96 +99,97 @@ nav ul li{
     background-color:black;
 }
 
-/* fin css header*/
+/*--------------------------------------------------------*/
+
+
+
 
 h1{
-    display: flex;
-    /*flex-direction: row;*/
-    justify-content: center;
+    text-align: center;
     font-family: 'Lalezar';
     font-size: 30px;
 }
-.para{
+h2{
     font-family: 'Lalezar';
-    display: flex;
-    /*flex-direction: row;*/
-    justify-content: center;
+    text-align: center;
+}
+
+
+
+.para{
     background-color: #c3c0c0;
     border-radius: 40px;
     text-align: justify;
-
-}
-.one{
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #c3c0c0;
-    border-radius: 40px;
-    text-align: center;
-}
-
-.two{
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #c3c0c0;
-    border-radius: 40px;
-    text-align: center;
-
-}
-
-.three{
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #c3c0c0;
-    border-radius: 40px;
-    text-align: center;
-
 }
 
 
-.all{
-    margin: 0;
-    padding: 20px;
-} 
-
-.para, .one, .two, .three {
-    max-width: 600px; 
+.para,.three {
+    max-width: 900px; 
     margin: 0 auto;
 }
 
-
-h2{
-    font-family: 'Lalezar';
+.p1{
+    font-family: 'Roboto', sans-serif;
+    text-align: justify; 
 }
-#li{
-    font-family: 'Lalezar';
-    
-}
-
-#list1{
-    list-style-type: circle;
-    list-style-position: inside;
-}
-
-#list2{
-    list-style-type: circle;
-    list-style-position: inside;
-}
-
-#list3{
-    list-style-type: circle;
-    list-style-position: inside;
+.p2{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
 }
 
 #ghost_text{
     color:grey ;
-    font-family: 'Lalezar';
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+
 }
+
+
+.para, .one, .two, .three{
+    color: #000000; /* Paragraph text color */
+    border: 5px solid #a00000; /* Red border */
+    background-color: #c3c0c0;
+    border-radius: 40px;
+    padding: 10px; 
+    margin-bottom: 20px; 
+    font-family: 'Roboto', sans-serif;
+}
+
+#list1, #list2, #list3{
+    list-style-type: circle;
+    list-style-position: inside;
+}
+
+/*----------------- Grid ----------------*/
+#grid-container{
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(1, auto);
+    grid-gap: 10px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.one{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.two{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+/*----------------------------------*/
+
+
+
+
 
 
 
