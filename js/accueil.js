@@ -162,7 +162,17 @@ function chronometer(){
 
 
 
+function clicLogo(){
+    window.location.replace("accueil.html");//au clic sur le logo ça renvoie vers la page accueil
+}
 
+
+function alerte(){
+    let navigation = confirm("Voulez-vous être rediriger vers la page membres ?");
+    if(navigation){
+        window.location.replace("membres.html");
+    }
+}
 
 
 
