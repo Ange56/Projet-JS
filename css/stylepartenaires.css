@@ -120,9 +120,6 @@ h1{              /*on définit la police des titres1*/
     width: 80%;
     margin: 0 auto;
     text-align: center;
-    /*grid-template-columns: 184px 366px 1fr 262px 1fr ;
-    grid-template-rows: 177px 190px 401px 238px 215px 185px 196px 194px 1fr  ;*/
-
 }
     
 #UBO{
@@ -181,7 +178,10 @@ h1{              /*on définit la police des titres1*/
     grid-column-start:2;
     grid-column-end: 3;
 }
-
+.text{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
 
 
 
