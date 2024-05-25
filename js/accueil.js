@@ -1,11 +1,16 @@
 //page accueil
+
+
+
+
+
+/*------------------------------MENU------------------------------*/
+
+
+/*Loader*/
 function loader(){
-    //cacher le body et après le montrer en modifiant css avec js
-
     removeBootstrapLinks();
-    
     chronometer();//commencer le chrono
-
     let load = document.getElementById("reload");
     load.style.display = 'none';
     let page = document.getElementById("page");
@@ -18,12 +23,11 @@ function loader(){
     table[1].style.display = 'flex';
     footer.style.backgroundColor = 'black';/*couleur de fond du footer*/
 }
-function removeBootstrapLinks() {
-    let bootstrapElements = document.querySelectorAll('.bootstrap');
 
+function removeBootstrapLinks(){//enlève les liens bootstrap qui peuvent correspondre à d'autres classe déjà mises
+    let bootstrapElements = document.querySelectorAll('.bootstrap');
     bootstrapElements.forEach(element => element.remove());
 }
-
 
 function load(){
     setTimeout(loader,2000);
@@ -31,10 +35,8 @@ function load(){
 
 
 
-
-
+/*Horloge*/
 function addSegments(digitId){//ajoute les segments de l'horloge numérique
-
     let chiffre = document.getElementById(digitId);//récupère l'endroit où est le chiffre
     let segment;
     for(let i=0; i<7; i++){//on fait les 7 segments
@@ -47,7 +49,6 @@ function addSegments(digitId){//ajoute les segments de l'horloge numérique
 }
 
 function updateDigit(digitId, value){//met à jour les chiffres en changeant les couleurs
-
     let segmentStates = [
         [1, 1, 1, 0, 1, 1, 1],//0
         [0, 0, 1, 0, 0, 1, 0],//1
@@ -97,7 +98,6 @@ function setTime(){//met l'heure à jour
     return realTime;//renvoie le tableau avec les chiffres dans l'ordre heures et minutes
 }
 
-
 function init(){//affiche les segments de l'horloge numérique
     //affiche les chiffres pour l'heure et les secondes en 'off'
     addSegments("hours-tens");
@@ -137,8 +137,7 @@ function updateHour(){//affiche l'heure
 
 
 
-
-
+/*Chronomètre du temps passé sur la page*/
 function newChrono(debut) {
     let chrono = document.getElementById('time');
     let temps = (Date.now() - debut) / 1000;
@@ -162,13 +161,16 @@ function chronometer(){
 
 
 
+/*Logo qui renvoie vers la page accueil*/
 function clicLogo(){
     window.location.replace("accueil.html");//au clic sur le logo ça renvoie vers la page accueil
 }
 
 
+
+/*Alerte quand on clique sur le bouton membres*/
 function alerte(){
-    let navigation = confirm("Voulez-vous être rediriger vers la page membres ?");
+    let navigation = confirm("Voulez-vous être redirigé vers la page membres ?");
     if(navigation){
         window.location.replace("membres.html");
     }
@@ -176,9 +178,37 @@ function alerte(){
 
 
 
+/*Couleurs affichées dans la console*/
+function couleurs(){
+    let menu = document.getElementById("menu");//on récupère le menu
+    let bouton = menu.getElementsByClassName("bouton");//tableau contenant tous les boutons du menu
+    let sousBouton = menu.getElementsByClassName("sous-bouton");
+    let boutonTab = [];
+    for(let btn of bouton){
+        boutonTab.push(btn);
+    } 
+    for(let sousBtn of sousBouton){
+        boutonTab.push(sousBtn);
+    }
+    let couleurAvant;
+    let couleurApres;
+    let nomBouton;
+    for(let element of boutonTab){
+        element.addEventListener("mouseover", ()=>{
+            couleurAvant = getComputedStyle(element).backgroundColor;
+            nomBouton = element.name;
+            console.log("La couleur du bouton ", nomBouton, " est : ", couleurAvant);
+        });
+        element.addEventListener("mouseout", ()=>{
+            couleurApres = getComputedStyle(element).backgroundColor;
+            nomBouton = element.name;
+            console.log("La couleur du bouton ", nomBouton, " est : ", couleurApres);
+        });
+    }
+}
 
 
-
+/*MAIN*/
 function main(){//appelle toutes les fonctions
     load();
     init();//initialise les chiffres en sombre
@@ -189,8 +219,9 @@ function main(){//appelle toutes les fonctions
     setInterval(updateHour,1000);
     //appelle la fonction qui allume ou éteint les points, toutes les secondes
     setInterval(points,1000);
-}
 
+    couleurs();
+}
 main();
 
 
