@@ -121,6 +121,9 @@ p{
     font-family: 'Roboto', sans-serif;
     text-align: justify;
 }
+
+
+
 #img-competences{/*l'image compétences*/
     border-color: #4D0404;/*couleur de la bordure*/
     border-style: solid;
@@ -129,7 +132,12 @@ p{
     width: 90%;/*taille de l'image par rapport à la taille de la page*/
     height: auto;/*hauteur automatique par rapport à sa largeur*/
     margin: auto;/*on la centre*/
+    transition: transform 0.3s ease;
+    cursor: pointer;
 }
+
+
+
 #page{/*contenu de la page*/
     display: flex;/*pour que le corps de page soit responsive*/
     flex-direction: column;
@@ -163,6 +171,42 @@ p{
     color:rgb(59, 59, 59);
 }
 
+#txt{
+    font-family: 'Lalezar';/*police du titre1*/
+    font-size: 38px;/*taille de la police*/
+    text-align: center;
+    font-weight: 1000;
+}
+
+/*  ------ translatation texte -----------------*/
+
+#textContainer {
+    overflow: hidden;
+    width: 100%;
+    /*text-align: right;*/
+	position: relative;
+	/*border: 1px solid black;*/
+}
+
+#txt {
+    /*display: inline-block;
+    white-space: nowrap;*/
+    position: relative;
+    left: 100%;
+    font-size: 50px;
+    animation: slideIn 20s linear infinite;
+}
+
+@keyframes slideIn {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/*------------------------------*/
 
 
 
