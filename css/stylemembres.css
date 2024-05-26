@@ -148,11 +148,27 @@ p{/*style des paragraphes*/
     height:150px;
     width: 150px;
     border-radius: 50%;/*pour que l'image soit un cercle*/
+    position : relative;
+}
+.gratter{
+    border-radius: 50%;
+    top: 50%; /* Placez l'image au milieu de son conteneur */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+#gratter-box {
+    text-align: center;
+    padding-top: 2%;
+    height: 150px;
+    position : relative;
+    background-color: white;
 }
 .image-box{/*on place l'image dans la carte*/
     text-align: center;
     padding-top: 2%;
 }
+
 .card-text{
     text-align: center;/*centre le texte de la carte*/
     color:rgb(133, 133, 133);
