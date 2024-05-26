@@ -8,6 +8,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Marko+One&family=Roboto&family=Stint+Ultra+Expanded&display=swap" rel="stylesheet"><!--importation de Roboto et Lalezar-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"><!--importation des icones de fontawesome-->
         <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Lalezar&family=Marko+One&family=Roboto&display=swap" rel="stylesheet"><!--importation de Audiowide-->
+        <script src="../js/contact.js" defer></script>
         <title> Contact </title>
     </head>
     <body>
@@ -44,31 +45,39 @@
             <form action="contact.html" method="get"><!--création d'un formulaire-->
                 <h1>Contactez l'équipe du L@bISEN</h1>
                 <div id="corps-formulaire"><!--corps du formulaire-->
-                    <div class="boite"><!--boite qui contient le texte et l'espace pour taper-->
-                        <label>Prénom<span class="red">*</span></label>
-                        <input class="input box" type="text" name="prenom" placeholder="Prénom" required><!--required pour que l'utilisateur soit obligé de taper quelque chose avant d'envoyer-->
+                    
+
+                    <!--Prénom et nom-->
+                    <div class="boite"><!--boite qui contient le texte et l'espace pour taper -->
+                        <label>Prénom Nom<span class="red">*</span></label>
+                        <input class="input box" type="text" name="prenom" id="prenom" placeholder="Prénom Nom" required><!--required pour que l'utilisateur soit obligé de taper quelque chose avant d'envoyer-->
                         <span class="material-icons icone">person</span><!--icone pour illustrer-->
+                        <span id="prenomError" class="error-message"></span>
+
                     </div>
                     <br>
-                    <div class="boite"><!--boite qui contient le texte et l'espace pour taper-->
-                        <label>Nom<span class="red">*</span></label>
-                        <input class="input box" type="text" name="nom" placeholder="Nom" required>
-                        <span class="material-icons icone">edit</span>
-                    </div>
-                    <br>
+                    <!-- email-->
                     <div class="boite"><!--boite qui contient le texte et l'espace pour taper-->
                         <label>Email<span class="red">*</span></label>
-                        <input class="input box" type="text" name="email" placeholder="name@email.com" required>
+                        <input class="input box" type="text" name="email" id="email" placeholder="name@email.com" required>
                         <span class="material-icons icone">mail</span>
+                        <span id="emailError" class="error-message"></span>
+
                     </div>
                     <br>
+                    <!--champs-->
                     <div class="boite"> <!--boite qui contient le texte et l'espace pour taper-->
                         <label>Votre requête</label>
                         <br>
-                        <textarea class="box input1" name="remarque1" id="remarque" rows="10" cols="70" placeholder="Ecrivez quelque chose..."></textarea>
+                        <textarea class="box input1" name="remarque1" id="remarque" rows="10" cols="70" placeholder="Ecrivez quelque chose..." required></textarea>
+                        <span id="remarqueError" class="error-message"></span>
+
                     </div>
                     <br>
-                    <input id="fin" type="submit" value="Envoyer"><!--bouton pour envoyer le formulaire-->
+                    <div>
+                        <button type="submit" id="fin" disabled>Envoyer</button>
+                    </div>
+                    <!--<input id="fin" type="submit" value="Envoyer">--><!--bouton pour envoyer le formulaire-->
                 </div>
             </form>
             <br>

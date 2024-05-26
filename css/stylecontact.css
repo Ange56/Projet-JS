@@ -183,11 +183,17 @@ form{
     border-radius: 5px;
     padding: 4px;
 }
+/*
 #fin:hover{
-    background-color: #616161;/*quand on passe sur le bouton pour envoyer, il change de couleur*/
+    background-color: #616161;
 }
+*/
 
-
+.error-message {
+    color: grey;
+    font-size: 12px;
+    display: none; /* Hide error messages by default */
+}
 
 
 
