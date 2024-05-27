@@ -9,6 +9,8 @@ body{/*arrière plan de couleur grise, pas de marges*/
 nav{/*couleur de l'arrière plan et du texte*/
     background-color: black;
     color: white;
+    position: relative;
+    z-index: 2;
 }
 #menu{/*on veut que le menu soit un minimum responsive*/
     list-style-type: none;/*on enlève les puces des listes*/
@@ -188,6 +190,7 @@ p{
     position: relative; /*defini le position relative */
     /*border: 1px solid black;*/
     text-align: center; /* Texte aligne au milieu pour le debut */
+    z-index: 1;
 }
 
 #txt {
@@ -205,6 +208,10 @@ p{
     75% { left: -30%; }/* a 75% le texte s'est deplace de 30% vers la droite*/
     100% { left: 0; }/* fin de l'animation le texte reprend sa position initiale*/
 }
+
+
+
+
 
 /*------------------------------*/
 
