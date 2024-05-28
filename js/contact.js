@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     */
     const gameBoard = document.getElementById("gameBoard");
     const cells = Array.from(document.getElementsByClassName("cell"));
-    const resetButton = document.getElementById("resetButton");
+    //const resetButton = document.getElementById("resetButton");
 
     /*----------------------------*/
 
@@ -371,7 +371,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	
     cells.forEach(cell => cell.addEventListener("drop", drop));
     cells.forEach(cell => cell.addEventListener("dragover", allowDrop));
-    resetButton.addEventListener("click", resetGame);
+    //resetButton.addEventListener("click", resetGame);
 	
 	document.addEventListener("dragstart", drag);
     document.addEventListener("dragend", () => draggedImage = null);
