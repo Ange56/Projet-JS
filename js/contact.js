@@ -2,7 +2,6 @@
 // Écouteur d'événement pour détecter lorsque le DOM (Document Object Model) est entièrement chargé
 document.addEventListener('DOMContentLoaded', function () {
     // Sélectionne le formulaire par son ID
-    //const form = document.getElementById('myForm');
     const form = document.querySelector('form[action="contact.html"]');
     // Sélectionne les champs de saisie par leur ID
     const prenomInput = document.getElementById('prenom');
@@ -10,6 +9,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const remarqueInput = document.getElementById('remarque');
     // Sélectionne le bouton de soumission par son ID
     const fin = document.getElementById('fin');
+
+    /*---------------------------*/
+    const gameContainer = document.getElementById("gameContainer");
+    /*
+    const playerForm = document.getElementById("playerForm");
+    const playerNameInput = document.getElementById("playerName");
+    */
+    const gameBoard = document.getElementById("gameBoard");
+    const cells = Array.from(document.getElementsByClassName("cell"));
+    const resetButton = document.getElementById("resetButton");
+
+    /*----------------------------*/
+
+
 
     // Sélectionne les éléments d'erreur par leur ID
     const prenomError = document.getElementById('prenomError');
@@ -101,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
         validateForm(); // Valide le formulaire à chaque saisie
     });
 
+    /*
     // Événement de soumission du formulaire
     form.addEventListener('submit', function (event) {
         event.preventDefault(); // Empêche la soumission automatique du formulaire
@@ -110,9 +124,258 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = '../html/accueil.html'; // Redirige vers la page d'accueil
         }
     });
+    */
 
     // Validation initiale pour désactiver le bouton de soumission lors du chargement de la page
     validateForm();
     // Désactive le bouton de soumission au chargement de la page
     fin.disabled = true;
+
+
+/*-----------------------------------jeu-------------------------------*/
+
+    function initTicTacToe(){
+        currentPlayer = "X";
+        gameState = Array(9).fill(null);
+        let draggedImage = null;
+        //masque formulaire et affiche tic tac toe
+        form.style.display = "none";
+        gameContainer.style.display = "block";
+
+        // Autres initialisations nécessaires (réinitialisation de la grille, etc.)
+        resetGame();
+
+        // Démarrage du jeu
+        //performComputerMove(); // L'ordinateur effectue le premier coup
+    }
+
+    const winningConditions = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+    ];
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Empêche la soumission automatique du formulaire
+        // Valide chaque champ individuellement lors de la soumission du formulaire
+        if (validatePrenom() && validateEmail() && validateRemarque()) {
+            //alert("Let's play"); // Alerte l'utilisateur que le formulaire est valide
+            initTicTacToe();
+        }
+    });
+    
+	function allowDrop(event) {
+        event.preventDefault();
+    }
+
+    function drag(event) {
+        draggedImage = event.target;
+    }
+
+    function drop(event) {
+        event.preventDefault();
+        const cell = event.target;
+        const cellIndex = parseInt(cell.getAttribute("data-index"));
+    
+        if (gameState[cellIndex] !== null || checkWinner() || currentPlayer !== "X") {
+            return;
+        }
+    
+        if (draggedImage && draggedImage.id === "cross") {
+            cell.appendChild(draggedImage.cloneNode());
+            gameState[cellIndex] = "X";
+            handleEndOfTurn();
+        }
+    }
+   
+    function performComputerMove() {
+        let bestMove = findBestMove();
+        if (bestMove !== -1) {
+            gameState[bestMove] = "O";
+            cells[bestMove].textContent = "O";
+            handleEndOfTurn();
+        }
+    }
+
+
+    /*-----------------------------------coups ordinateur-----------------------------------*/
+    function findBestMove() {
+        let bestScore = -Infinity;
+        let bestMove = -1;
+
+        // Parcourt toutes les cellules vides pour évaluer les coups possibles
+        for (let i = 0; i < gameState.length; i++) {
+            if (gameState[i] === null) {
+                // Simule le coup
+                gameState[i] = "O";
+                // Évalue le score du coup
+                let score = evaluateMove(i, "O");
+                // Annule le coup
+                gameState[i] = null;
+                // Met à jour le meilleur coup
+                if (score > bestScore) {
+                    bestScore = score;
+                    bestMove = i;
+                }
+            }
+        }
+
+        return bestMove;
+    }
+
+    function evaluateMove(move, player) {
+        // Évalue la qualité du coup en fonction de quelques critères simples
+        // Par exemple, le fait de compléter une ligne, de bloquer l'adversaire, etc.
+        let score = 0;
+
+            // Simule le coup
+        gameState[move] = player;
+
+        // Vérifie s'il y a une victoire
+        if (checkWinner() === player) {
+            score = 10; // Victoire immédiate
+        } else {
+            // Vérifie s'il y a une possibilité de victoire au prochain coup
+            gameState[move] = player === "X" ? "O" : "X";
+            if (checkWinner() === player) {
+                score = 8; // Bloquer l'adversaire
+            } else {
+                // Réinitialise l'état du jeu
+                gameState[move] = null;
+                // Évalue d'autres critères
+                // Par exemple, occupation du centre, des coins, des côtés, etc.
+                if (isCreatingOpportunity(move, player)) {
+                    score = 6; // Créer une opportunité de gagner
+                } else if (isThreateningOpponent(move, player)) {
+                    score = 4; // Menace de l'adversaire
+                } else if (isInCenter(move)) {
+                    score = 3; // Occupation du centre
+                } else if (isInCorner(move)) {
+                    score = 2; // Occupation des coins
+                } else {
+                    score = 1; // Occupation des côtés
+                }
+            }
+        }
+
+        // Annule le coup
+        gameState[move] = null;
+
+        return score;
+    }
+
+
+    function isCreatingOpportunity(move, player) {
+        // Simule le coup
+        gameState[move] = player;
+    
+        // Vérifie si le joueur a une possibilité de gagner au prochain coup
+        const hasOpportunity = checkWinner() === player;
+    
+        // Annule le coup
+        gameState[move] = null;
+    
+        return hasOpportunity;
+    }
+    
+    function isThreateningOpponent(move, player) {
+        // Simule le coup
+        gameState[move] = player === "X" ? "O" : "X";
+    
+        // Vérifie si l'adversaire a une possibilité de gagner au prochain coup
+        const isThreat = checkWinner() === player;
+    
+        // Annule le coup
+        gameState[move] = null;
+    
+        return isThreat;
+    }
+    
+    function isInCenter(move) {
+        // Vérifie si le coup est placé au centre (indice 4 dans un tableau de 9 cases)
+        return move === 4;
+    }
+    
+    function isInCorner(move) {
+        // Liste des indices des coins dans un tableau de 9 cases
+        const corners = [0, 2, 6, 8];
+        // Vérifie si le coup est placé dans l'un des coins
+        return corners.includes(move);
+    }
+
+
+    /*---------------------------------------------------------------------------------------------*/
+
+
+
+    function handleEndOfTurn() {
+        if (checkWinner()) {
+            setTimeout(() => {
+                if (currentPlayer === "X") {
+                    alert("Vous avez gagné, votre formulaire va être envoyé.");
+                    form.submit();
+                } else {
+                    alert("Vous avez perdu ! Votre formulaire ve être réinitialisé.");
+                    resetForm();
+                }
+            }, 100);
+        } else if (!gameState.includes(null)) {
+            setTimeout(() => {
+                alert("Match nul ! Votre formulaire va être réinitialisé.");
+                resetForm();
+            }, 100);
+        } else {
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+            if (currentPlayer === "O") {
+                setTimeout(() => {
+                    performComputerMove();
+                }, 100);
+            }
+        }
+    }
+
+
+
+    function checkWinner() {
+        for (const condition of winningConditions) {
+            const [a, b, c] = condition;
+            if (gameState[a] && gameState[a] === gameState[b] && gameState[a] === gameState[c]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function resetGame() {
+        gameState = Array(9).fill(null);
+        cells.forEach(cell => cell.textContent = "");
+        currentPlayer = "X";
+    }
+
+    function resetForm() {
+        // Réinitialisation du formulaire
+        prenomInput.value = "";
+        emailInput.value = "";
+        remarqueInput.value = "";
+        form.style.display = "block";
+        gameContainer.style.display = "none";
+        resetGame();
+    }
+
+    //cells.forEach(cell => cell.addEventListener("click", handleCellClick));
+	
+    cells.forEach(cell => cell.addEventListener("drop", drop));
+    cells.forEach(cell => cell.addEventListener("dragover", allowDrop));
+    resetButton.addEventListener("click", resetGame);
+	
+	document.addEventListener("dragstart", drag);
+    document.addEventListener("dragend", () => draggedImage = null);
+	
 });
+
+/*----------------------------------------------------------------*/

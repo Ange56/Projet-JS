@@ -183,17 +183,74 @@ form{
     border-radius: 5px;
     padding: 4px;
 }
-/*
-#fin:hover{
-    background-color: #616161;
-}
-*/
-
 .error-message {
     color: grey;
     font-size: 12px;
     display: none; /* Hide error messages by default */
 }
+
+
+/*----------------------- jeu ---------------------------*/
+
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border: 1px solid #000;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+#resetButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+}
+
+
+.draggable-images {
+    margin-top: 20px;
+}
+
+.draggable-images #cross {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    cursor: grab;
+}
+.cell img {
+    width: 50px;
+    height: 50px;
+}
+
+
+/*-------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
