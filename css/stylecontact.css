@@ -190,8 +190,19 @@ form{
 }
 
 
-/*----------------------- jeu ---------------------------*/
 
+/*----------------------- jeu ---------------------------*/
+#jeu{
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+    font-size: 20px;
+}
+/*----------*/
+#gameContainer{
+    display: none;
+    justify-content: center; /* Centre horizontalement le contenu du conteneur */
+    align-items: center; /* Centre verticalement le contenu du conteneur */
+}
 
 .game-board {
     display: grid;
@@ -211,13 +222,8 @@ form{
     font-size: 2em;
     cursor: pointer;
 }
-/*
-#resetButton {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1em;
-}
-*/
+
+
 
 
 .draggable-images {

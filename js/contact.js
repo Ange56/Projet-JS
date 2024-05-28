@@ -1,3 +1,10 @@
+function afficherJeu() {
+    const gameContainer = document.getElementById('gameContainer');
+    gameContainer.style.display = 'flex';
+}
+
+
+
 
 // Écouteur d'événement pour détecter lorsque le DOM (Document Object Model) est entièrement chargé
 document.addEventListener('DOMContentLoaded', function () {
