@@ -13,6 +13,8 @@ body{/*arrière plan de couleur grise, pas de marges*/
 nav{/*couleur de l'arrière plan et du texte*/
     background-color: black;
     color: white;
+    z-index:2;
+    position:relative;
 }
 #menu{/*on veut que le menu soit un minimum responsive*/
     list-style-type: none;/*on enlève les puces des listes*/
@@ -294,6 +296,54 @@ hr{/*trait qui ne colle pas les bords de la carte*/
         margin-bottom: 25px;/*espace après les cartes*/
     }
 }
+
+
+
+
+
+
+
+
+/*mode édition de la page*/
+#bouton-edition{
+    background-color: #CA0000;
+    color: white;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 15px;/*on redimensionne la police*/
+    text-decoration: none;/*enlève le soulignement automatique du lien*/
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 15px;/*coins arrondis*/
+    border-style: solid;/*bordure extérieure*/
+    border-width: 1px;
+    border-color: black;
+    box-shadow: 0 5px #999;
+    position: absolute;
+    right:20px;
+    
+    z-index:1;
+}
+
+#bouton-edition:hover{
+    background-color: red;
+}
+
+#active-edition{
+    background-color: red;
+}
+
+#bouton-edition:active {
+    background-color: #CA0000;
+    box-shadow: 0 5px #666;
+    transform: translateY(2px);
+}
+
+
+
+
 
 
 
