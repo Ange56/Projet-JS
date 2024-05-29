@@ -69,46 +69,71 @@ function edition_appui_bouton(){
             else{
                 bouton_edition.style.backgroundColor = "black"; // nouvelle couleur
                 bouton_edition.style.borderColor = "red"; // nouvelle couleur
-                nouvelle_carte();
+                card1eLigne();
+                card2eLigne();
+                card3eLigne();
+                card4eLigne();
+                card5eLigne();
             }
         }
     }
 }
-function nouvelle_carte(){
+
+function nouvelle_carte(rowStart, rowEnd, columnStart, columEnd, idcard, idAvant){
     let page = document.getElementById("page");
-    let card2 = document.getElementById("c");
     let plus = document.createElement("img");
     let new_card = document.createElement("div");
 
-    
-    page.insertBefore(plus, card2);
     plus.src = "../images/plus.png";
     plus.height = "100";
     plus.width ="100";
-    //le centrer
     //rajouter icones crayons sinon
     
     page.style.gridTemplateColumns = "1fr 5fr 1fr 5fr 1fr 5fr 1fr";
-    plus.style.gridRowStart ="3";/*commence à la deuxième ligne*/
-    plus.style.gridRowEnd="4";/*finit à la 3e ligne*/
-    plus.style.gridColumnStart= "6";/*commence à la 2e colonne*/
-    plus.style.gridColumnEnd= "7";
+    plus.style.gridRowStart = rowStart;/*commence à la deuxième ligne*/
+    plus.style.gridRowEnd= rowEnd;/*finit à la 3e ligne*/
+    plus.style.gridColumnStart= columnStart;/*commence à la 2e colonne*/
+    plus.style.gridColumnEnd= columEnd;
+
+    //sert à centrer l'image
+    plus.style.display = "block";
+    plus.style.margin = "auto";
+
     
     plus.addEventListener("click", () =>{
         plus.style.display = "none";
         new_card.classList.add("card");
-        new_card.id="cbis";
-        new_card.style.gridRowStart ="3";/*commence à la deuxième ligne*/
-        new_card.style.gridRowEnd="4";/*finit à la 3e ligne*/
-        new_card.style.gridColumnStart= "6";/*commence à la 2e colonne*/
-        new_card.style.gridColumnEnd= "7";
+        new_card.id= idcard;
+        new_card.style.gridRowStart = rowStart;/*commence à la deuxième ligne*/
+        new_card.style.gridRowEnd = rowEnd;/*finit à la 3e ligne*/
+        new_card.style.gridColumnStart = columnStart;/*commence à la 2e colonne*/
+        new_card.style.gridColumnEnd= columEnd;
     });
-
-
-
-    page.insertBefore(new_card, card2);
-
+    for(enfant of page.children){
+        if(enfant.id == idAvant){
+            page.appendChild(plus);
+            page.appendChild(new_card);
+        }
+    }
 }
+
+
+function card1eLigne(){//crée une carte sur la première ligne
+    let new_card = nouvelle_carte("3", "4", "6", "7", "id1", "c");
+}
+function card2eLigne(){
+    let new_card = nouvelle_carte("5", "6", "4", "5", "id2", "e");
+}
+function card3eLigne(){
+    let new_card = nouvelle_carte("7", "8", "4", "5", "id3", "g");
+}
+function card4eLigne(){
+    let new_card = nouvelle_carte("9", "10", "4", "5", "id4", "i");
+}
+function card5eLigne(){ 
+    let new_card = nouvelle_carte("11", "12", "4", "5", "id5", "k");
+}
+
 
 
 
