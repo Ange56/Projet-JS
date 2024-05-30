@@ -9,6 +9,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Marko+One&family=Roboto&family=Stint+Ultra+Expanded&display=swap" rel="stylesheet"><!--importation de Roboto et Lalezar-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"><!--importation des icones de fontawesome-->
         <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Lalezar&family=Marko+One&family=Roboto&display=swap" rel="stylesheet"><!--importation de Audiowide-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" class="bootstrap">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous" class="bootstrap"></script>
         <script src="../js/menu.js" defer></script>
         <title> Thématiques </title>
     </head>
@@ -23,7 +25,7 @@
         <header>
             <nav>
                 <ul id="menu"><!--création du menu-->
-                    <li><img src="../images/LabISEN.png" alt="logo officiel" height="70"></li>
+                    <li><img src="../images/LabISEN.png" alt="logo officiel" height="70" onclick="clicLogo()"></li>
                     <li><a href="accueil.html" class="bouton"><span class="material-icons icon-menu">home</span> &ensp;Accueil</a></li>
                     <li class="dropbutton"><!--menu déroulant-->
                         <a class="current bouton"><span class="material-icons icon-menu">search</span> &ensp;Recherche<span class="material-icons icon-menu drop">arrow_drop_down</span></a>
@@ -63,24 +65,24 @@
 
 
 
+        <div id="page"><!--corps de la page-->
 
+            <div class="paragraph-container">
+                <div class="paragraph">
+                    <h2>Thématiques de recherche :</h2>
+                    <p>L’équipe « Vision et Analyse de Données » mène une activité de R&D pour la conception de plateformes technologiques d’observations et d’analyses à partir de réseaux de capteurs intelligents. Les travaux réalisés visent à associer des outils mathématiques, informatiques et électroniques pour produire des informations critiques à partir de capteurs hétérogènes dont les capteurs d’images qui prennent une position importante au sein de l’équipe. Par ses activités, l’équipe a pour ambition de se positionner comme acteur des applications innovantes en lien avec les systèmes de vision, les objets communicants et leurs usages dans les Smart Buildings/Cities, l’usine du futur, la surveillance des milieux marins/sous-marins. Les travaux débouchent souvent sur une preuve de concept, une réalisation de prototypes ou un déploiement de solutions. De manière synthétique, les activités de l’équipe se regroupent autour de deux axes :</p>
+                </div>
+                <div class="paragraph">
+                    <h2>Axe 1 - Intelligence embarquée</h2>
+                    <p>Traitement des données proche capteur pour la conception de d’objets communicants dont les caméras intelligentes capables de détecter des évènements, de suivre des cibles, de classifier des objets et de segmenter des environnements. Un intérêt particulier est porté pour les techniques de reconnaissance de formes (visage, objets manufacturés, objets sous-marin, motif, 3D).</p>
+                </div>
+                <div class="paragraph">
+                    <h2>Axe 2 - Analyse de données</h2>
+                    <p>Interprétation de données (data mining) à base d’analyse statistique et d’apprentissage automatique. L’utilisation de capteurs hétérogènes apporte des avantages en termes de pertinence d’informations produites à travers la fusion de données et l’analyse multivariée. De plus, pour la réalisation de prototypes, les notions d’Adéquation Algorithme/Architecture, d’efficacité énergétique et de communications entre les capteurs à l’aide de moyens de communications innovants sont étudiées.</p>
+                </div>
+            </div>
 
-        <div class="paragraph-container">
-            <div class="paragraph">
-                <h2>Thématiques de recherche :</h2>
-                <p>L’équipe « Vision et Analyse de Données » mène une activité de R&D pour la conception de plateformes technologiques d’observations et d’analyses à partir de réseaux de capteurs intelligents. Les travaux réalisés visent à associer des outils mathématiques, informatiques et électroniques pour produire des informations critiques à partir de capteurs hétérogènes dont les capteurs d’images qui prennent une position importante au sein de l’équipe. Par ses activités, l’équipe a pour ambition de se positionner comme acteur des applications innovantes en lien avec les systèmes de vision, les objets communicants et leurs usages dans les Smart Buildings/Cities, l’usine du futur, la surveillance des milieux marins/sous-marins. Les travaux débouchent souvent sur une preuve de concept, une réalisation de prototypes ou un déploiement de solutions. De manière synthétique, les activités de l’équipe se regroupent autour de deux axes :</p>
-            </div>
-            <div class="paragraph">
-                <h2>Axe 1 - Intelligence embarquée</h2>
-                <p>Traitement des données proche capteur pour la conception de d’objets communicants dont les caméras intelligentes capables de détecter des évènements, de suivre des cibles, de classifier des objets et de segmenter des environnements. Un intérêt particulier est porté pour les techniques de reconnaissance de formes (visage, objets manufacturés, objets sous-marin, motif, 3D).</p>
-            </div>
-            <div class="paragraph">
-                <h2>Axe 2 - Analyse de données</h2>
-                <p>Interprétation de données (data mining) à base d’analyse statistique et d’apprentissage automatique. L’utilisation de capteurs hétérogènes apporte des avantages en termes de pertinence d’informations produites à travers la fusion de données et l’analyse multivariée. De plus, pour la réalisation de prototypes, les notions d’Adéquation Algorithme/Architecture, d’efficacité énergétique et de communications entre les capteurs à l’aide de moyens de communications innovants sont étudiées.</p>
-            </div>
         </div>
-
-
 
 
 

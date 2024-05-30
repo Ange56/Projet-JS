@@ -15,7 +15,7 @@ nav{/*couleur de l'arrière plan et du texte*/
 }
 #menu{/*on veut que le menu soit un minimum responsive*/
     list-style-type: none;/*on enlève les puces des listes*/
-    display: none;/*permet le responsive*/
+    display: none;/*cache le menu pendant le loader*/
     justify-content: space-between;/*les boutons du menu prennent toute la place*/
     text-align: center;
     margin-top: 0;/*aucun espace avant le menu*/
@@ -130,7 +130,7 @@ p{
     margin: auto;/*on la centre*/
 }
 #page{/*contenu de la page*/
-    display: none;/* flex avant pour que le corps de page soit responsive*/
+    display: none;/* pour cacher la page le temps du loader*/
     flex-direction: column;
     padding-right: 10%;/*marge à droite*/
     padding-left:10%;/*marge à gauche*/
@@ -173,7 +173,7 @@ footer{
     font-family: 'Roboto', sans-serif;
 }
 table{
-    display: none;/*tableau responsive*/
+    display: none;/*cacher le temps du loader*/
     flex-direction: column;
     padding-right: 10%;
     padding-left:10%;
