@@ -13,10 +13,12 @@ body{/*arrière plan de couleur grise, pas de marges*/
 nav{/*couleur de l'arrière plan et du texte*/
     background-color: black;
     color: white;
+    z-index:2;
+    position:relative;
 }
 #menu{/*on veut que le menu soit un minimum responsive*/
     list-style-type: none;/*on enlève les puces des listes*/
-    display: flex;/*permet le responsive*/
+    display: none;/*le temps que le loader charge*/
     justify-content: space-between;/*les boutons du menu prennent toute la place*/
     text-align: center;
     margin-top: 0;/*aucun espace avant le menu*/
@@ -129,7 +131,7 @@ p{/*style des paragraphes*/
     text-align: justify;
 }
 #page{/*on utilise cette fois le grid pour que la page soit responsive*/
-    display: grid;
+    display: none;/*le temps que loader charge*/
     grid-template-columns: 10% 280px 16% 280px 10%;/*on crée des colonnes pour la grille*/
     grid-template-rows: 40px auto 520px auto 460px auto 500px auto 520px auto 480px 100px;/*on crée des lignes pour la grille*/
 }
@@ -148,11 +150,27 @@ p{/*style des paragraphes*/
     height:150px;
     width: 150px;
     border-radius: 50%;/*pour que l'image soit un cercle*/
+    position : relative;
+}
+.gratter{
+    border-radius: 50%;
+    top: 50%; /* Placez l'image au milieu de son conteneur */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+#gratter-box {
+    text-align: center;
+    padding-top: 2%;
+    height: 150px;
+    position : relative;
+    background-color: white;
 }
 .image-box{/*on place l'image dans la carte*/
     text-align: center;
     padding-top: 2%;
 }
+
 .card-text{
     text-align: center;/*centre le texte de la carte*/
     color:rgb(133, 133, 133);
@@ -268,11 +286,6 @@ hr{/*trait qui ne colle pas les bords de la carte*/
 }
 
 @media screen and (max-width: 880px){/*si la taille de l'écran est inférieure à 880px*/
-    #page {/*la page change*/
-        display: block; /*la page est en colonne*/
-        text-align: center;/*tout le texte est centré*/
-        align-items: center;/*les éléments aussi sont centrés*/
-    }
     .card {
         margin: auto; /*Permet de centrer les cartes*/
         margin-bottom: 25px;/*espace après les cartes*/
@@ -286,15 +299,62 @@ hr{/*trait qui ne colle pas les bords de la carte*/
 
 
 
+/*mode édition de la page*/
+#bouton-edition{
+    background-color: #CA0000;
+    color: white;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 15px;/*on redimensionne la police*/
+    text-decoration: none;/*enlève le soulignement automatique du lien*/
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 15px;/*coins arrondis*/
+    border-style: solid;/*bordure extérieure*/
+    border-width: 1px;
+    border-color: black;
+    box-shadow: 0 5px #999;
+    position: absolute;
+    right:20px;
+    
+    z-index:1;
+}
+
+#bouton-edition:hover{
+    background-color: red;
+}
+
+#active-edition{
+    background-color: red;
+}
+
+#bouton-edition:active {
+    background-color: #CA0000;
+    box-shadow: 0 5px #666;
+    transform: translateY(2px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*FOOTER*/
 footer{
-    background-color: black;/*couleur de fond du footer*/
     font-family: 'Roboto', sans-serif;
 }
 table{
-    display: flex;/*tableau responsive*/
+    display: none;/*le temps que le loader charge*/
     flex-direction: column;
     padding-right: 10%;
     padding-left:10%;
@@ -338,4 +398,72 @@ table td,th,tr{/*couleurs pour les lignes du tableau qu'on ne veut pas voir*/
 
 table, td, th{/*bordure du tableau*/
     border: 1px solid;
+}
+
+
+
+
+
+
+
+/*------------HORLOGE---------------*/
+.segment0 { left: 2.5px; top: 0.625px; width: 7.5px; height: 0px; }/*20px to 10px divide par 2*/
+.segment1 { left: 0.625px; top: 2.5px; width: 0px; height: 7.5px; }
+.segment2 { left: 11.875px; top: 2.5px; width: 0px; height: 7.5px; }
+.segment3 { left: 2.5px; top: 11.875px; width: 7.5px; height: 0px; }
+.segment4 { left: 0.625px; top: 13.75px; width: 0px; height: 7.5px; }
+.segment5 { left: 11.875px; top: 13.75px; width: 0px; height: 7.5px; }
+.segment6 { left: 2.5px; top: 23.125px; width: 7.5px; height: 0px; }
+
+.led {
+    position: absolute;
+    border-radius: 1.25px 1.25px 1.25px 1.25px;
+    height : 1.25px;
+    width : 1.25px;
+    background: white;
+
+}
+
+.segment {
+    position: absolute;
+    border-radius: 1.25px;
+    border: 1.25px solid white;
+    transition: all 0.2s linear;
+}
+
+.shiftedClock{
+    position: absolute;
+    top:37.5px;
+    left:12.5px;
+}
+
+.clock > div {
+    list-style: none;
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 15px;
+    height: 25px;
+}
+
+.clock > .colon {
+    font-size: 12.5px;
+    height: 15px;
+    width: 5px;
+    top: -9.375px;
+    color: white;
+    text-align: center;
+}
+
+.off {
+    transition: all 0.2s linear;
+    opacity: 0.2;
+}
+
+
+/*----chrono----*/
+#chrono{
+    font-size: 0.8em;
+    width : 100px;
 }

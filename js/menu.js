@@ -13,8 +13,15 @@ function loader(){
     chronometer();//commencer le chrono
     let load = document.getElementById("reload");
     load.style.display = 'none';
+    let nomPage = document.title;
     let page = document.getElementById("page");
-    page.style.display = 'flex';
+    if(nomPage == "Membres"){ //car la page membres utilise grid et non flex
+        page.style.display = 'grid';
+        verifySize();
+    }
+    else{
+        page.style.display = 'flex';
+    }
     let menu = document.getElementById("menu");
     menu.style.display = 'flex';
     let footer = document.getElementsByTagName("footer")[0];
@@ -32,7 +39,23 @@ function removeBootstrapLinks(){//enlève les liens bootstrap qui peuvent corres
 function load(){
     setTimeout(loader,2000);
 }
-
+function size(){
+    let page = document.getElementById("page");
+    if (window.matchMedia("(max-width: 880px)").matches) {
+        // Modifier les propriétés CSS en JavaScript
+        page.style.display = "block";
+        page.style.textAlign = "center";
+        page.style.alignItems = "center";
+    }
+    else{
+        page.style.display = "grid";
+        page.style.textAlign = "";
+        page.style.alignItems = "";
+    }
+}
+function verifySize(){//vérifie si la taille de l'écran change
+    setInterval(size, 500);
+}
 
 
 /*Horloge*/

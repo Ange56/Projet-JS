@@ -12,7 +12,7 @@ nav{/*couleur de l'arrière plan et du texte*/
 }
 #menu{/*on veut que le menu soit un minimum responsive*/
     list-style-type: none;/*on enlève les puces des listes*/
-    display: flex;/*permet le responsive*/
+    display: none;/*cache le menu pendant le loader*/
     justify-content: space-between;/*les boutons du menu prennent toute la place*/
     text-align: center;
     margin-top: 0;/*aucun espace avant le menu*/
@@ -99,8 +99,17 @@ nav ul li{
     background-color:black;
 }
 
-/*corps de la page*/
 
+
+
+
+/*-----------corps de la page-------*/
+#page{/*contenu de la page*/
+    display: none;/* pour cacher la page le temps du loader*/
+    flex-direction: column;
+    padding-right: 10%;/*marge à droite*/
+    padding-left:10%;/*marge à gauche*/
+}
 
 h1{              /*on définit la police des titres1*/
     font-family: 'Lalezar';
@@ -110,91 +119,84 @@ h1{              /*on définit la police des titres1*/
 }
 #grid-container{
     display: grid;
-    grid-template-columns: 184px 366px 1fr 262px 1fr ;
-    grid-template-rows: 177px 190px 401px 238px 215px 185px 196px 194px 1fr  ;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, auto);
+    grid-gap: 10px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
 }
     
 #UBO{
-    grid-row-start: 2;
-    grid-row-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
     grid-column-start: 2;
     grid-column-end: 3;
 }
 #castel{
-    grid-row-start: 2;
-    grid-row-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
     grid-column-start: 4;
     grid-column-end: 5;
 
 }
 #malakoff{
-    grid-row-start: 3;
-    grid-row-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
     grid-column-start: 2;
     grid-column-end: 3;
 }
 #acome{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
+#erc{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    
+}
+#generix{
     grid-row-start: 3;
     grid-row-end: 4;
     grid-column-start: 4;
     grid-column-end: 5;
 }
-#erc{
-    grid-row-start: 4;
-    grid-row-end: 5;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    
-}
 #kardham{
-    grid-row-start: 5;
-    grid-row-end: 6;
-    grid-column-start: 2;
-    grid-column-end: 3;
-}
-#generix{
     grid-row-start: 4;
     grid-row-end: 5;
-    grid-column-start: 4;
-    grid-column-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 3;
 }
 #thales{
-    grid-row-start: 5;
-    grid-row-end: 6;
+    grid-row-start: 4;
+    grid-row-end: 5;
     grid-column-start: 4;
     grid-column-end: 5;
 }
-#internationaux{
-    grid-row-start: 6;
-    grid-row-end: 7;
-    grid-column-start: 3;
-    grid-column-end: 4;
-
-}
 #maroc{
-    grid-row-start: 7;
-    grid-row-end: 8;
+    grid-row-start: 5;
+    grid-row-end: 6;
     grid-column-start:2;
     grid-column-end: 3;
 }
-#ENIS{
-    grid-row-start: 7;
-    grid-row-end: 8;
-    grid-column-start: 4;
-    grid-column-end: 5;
+.text{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
 }
-
 
 
 
 
 /*FOOTER*/
 footer{
-    background-color: black;/*couleur de fond du footer*/
     font-family: 'Roboto', sans-serif;
 }
 table{
-    display: flex;/*tableau responsive*/
+    display: none;/*cacher le temps du loader*/
     flex-direction: column;
     padding-right: 10%;
     padding-left:10%;
@@ -240,3 +242,100 @@ table, td, th{/*bordure du tableau*/
     border: 1px solid;
 }
 
+
+
+
+/*
++---+---+---+---+---+
+|   |   |   |   |   |
++---+---+---+---+---+
+|   | U |   | C |   |
+|   | B |   | a |   |
+|   | O |   | s |   |
++---+---+---+---+---+
+|   | M |   | a |   |
+|   | a |   | l |   |
+|   | l |   | a |   |
++---+---+---+---+---+
+|   | E |   | G |   |
+|   | R |   | e |   |
+|   | C |   | n |   |
++---+---+---+---+---+
+|   | K |   | T |   |
+|   | a |   | h |   |
+|   | r |   | a |   |
++---+---+---+---+---+
+|   |   |   |   |   |
++---+---+---+---+---+
+|   |   |   |   |   |
++---+---+---+---+---+
+|   |   |   |   |   |
++---+---+---+---+---+
+
+
+*/
+
+
+
+
+/*------------HORLOGE---------------*/
+.segment0 { left: 2.5px; top: 0.625px; width: 7.5px; height: 0px; }/*20px to 10px divide par 2*/
+.segment1 { left: 0.625px; top: 2.5px; width: 0px; height: 7.5px; }
+.segment2 { left: 11.875px; top: 2.5px; width: 0px; height: 7.5px; }
+.segment3 { left: 2.5px; top: 11.875px; width: 7.5px; height: 0px; }
+.segment4 { left: 0.625px; top: 13.75px; width: 0px; height: 7.5px; }
+.segment5 { left: 11.875px; top: 13.75px; width: 0px; height: 7.5px; }
+.segment6 { left: 2.5px; top: 23.125px; width: 7.5px; height: 0px; }
+
+.led {
+    position: absolute;
+    border-radius: 1.25px 1.25px 1.25px 1.25px;
+    height : 1.25px;
+    width : 1.25px;
+    background: white;
+
+}
+
+.segment {
+    position: absolute;
+    border-radius: 1.25px;
+    border: 1.25px solid white;
+    transition: all 0.2s linear;
+}
+
+.shiftedClock{
+    position: absolute;
+    top:37.5px;
+    left:12.5px;
+}
+
+.clock > div {
+    list-style: none;
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 15px;
+    height: 25px;
+}
+
+.clock > .colon {
+    font-size: 12.5px;
+    height: 15px;
+    width: 5px;
+    top: -9.375px;
+    color: white;
+    text-align: center;
+}
+
+.off {
+    transition: all 0.2s linear;
+    opacity: 0.2;
+}
+
+
+/*----chrono----*/
+#chrono{
+    font-size: 0.8em;
+    width : 100px;
+}
