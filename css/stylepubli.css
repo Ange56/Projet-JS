@@ -204,3 +204,46 @@ table td,th,tr{/*couleurs pour les lignes du tableau qu'on ne veut pas voir*/
 table, td, th{/*bordure du tableau*/
     border: 1px solid;
 }
+form.filter {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adjust the gap between elements if needed */
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+fieldset > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#radio {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adjust the gap between radio options if needed */
+}
+
+#champs {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nom, .titre, .année {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adjust the margin as needed */
+}

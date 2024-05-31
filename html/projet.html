@@ -2,41 +2,32 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <link href="../css/styleprojet.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Marko+One&family=Roboto&family=Stint+Ultra+Expanded&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Marko+One&family=Roboto&family=Stint+Ultra+Expanded&display=swap" rel="stylesheet">
+        <link href="../css/styleprojet.css" rel="stylesheet"> <!--on relie le fichier html au fichier css correspondant-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"><!--importation des icones google-->
+        <link rel="preconnect" href="https://fonts.googleapis.com"><!--importation des polices de google-->
+        <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Marko+One&family=Roboto&family=Stint+Ultra+Expanded&display=swap" rel="stylesheet"><!--importation de Roboto et Lalezar-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"><!--importation des icones de fontawesome-->
+        <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Lalezar&family=Marko+One&family=Roboto&display=swap" rel="stylesheet"><!--importation de Audiowide-->
+        <script src="../js/projet.js"></script>
         <title> Projets</title>
     </head>
     <body>
         <header>
             <nav>
-                <ul id="menu">
-                    <li><img src="images/LabISEN.png" alt="logo officiel" height="70"></li>
-                    
+                <ul id="menu"><!--création d'un menu-->
+                    <li><img src="../images/LabISEN.png" alt="logo officiel" height="70"></li>
                     <li><a href="accueil.html" class="bouton"><span class="material-icons icon-menu">home</span> &ensp;Accueil</a></li>
-                    
-                    <li class="dropbutton">
+                    <li class="dropbutton"><!--menu déroulant-->
                         <a class="bouton"><span class="material-icons icon-menu">search</span> &ensp;Recherche<span class="material-icons icon-menu drop">arrow_drop_down</span></a>
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu"><!--menu déroulant-->
                             <a href="thematique_ver-finale.html" class="sous-bouton separateur"><div class="rectangle"></div>Thématiques de recherche</a>
                             <a href="plateformes.html" class="sous-bouton"><div class="rectangle"></div>Plateformes technologiques</a>
                         </div>
                     </li>
-                    
                     <li><a href="membres.html" class="bouton"><span class="material-icons icon-menu">groups</span> &ensp;Membres</a></li>
-                    
                     <li><a href="projet.html" class="current bouton"><span class="material-icons icon-menu">emoji_objects</span> &ensp;Projets</a></li>
-                   
                     <li><a href="publications.html" class="bouton"><span class="material-icons icon-menu">edit</span> &ensp;Publications</a></li>
-                    
                     <li><a href="partenaires.html" class="bouton"><span class="material-icons icon-menu">handshake</span> &ensp;Partenaires</a></li>
-                    
                     <li class="dropbutton">
                         <a class="bouton"><span class="material-icons icon-menu">add_circle_outline</span> &ensp;Info et contacts<span class="material-icons icon-menu drop">arrow_drop_down</span></a>
                         <div class="dropdown-menu">
@@ -51,13 +42,11 @@
         </header>
 
 
-
-        <div id="layout">
+        <h1>Projets en cours</h1>
+        <br>
+        <div id="grid-container">
             
-            <div id="titre1">
-                <h1>Projets en cours</h1>
-            </div>
-
+            
             <div id="txt1">
                 <h2>CASTEL : accompagnement dans la transformation digitale</h2>
                 <br>
@@ -83,9 +72,9 @@
 
                
             </div>
-
+            
             <div id="img1">
-                <img src="images/castel2.png" id="imge1">
+                <img onclick="changeImage1()" src="../images/castel2.png" id="imge1">
             </div>
             
             
@@ -115,7 +104,7 @@
             </div>
 
             <div id="img2">
-                <img src="images/VISEMARimg.png" id="imge1"> <!--image à changer-->
+                <img onclick="changeImage2()" src="../images/VISEMARimg.png" id="imge2"> 
             </div>
 
 
@@ -144,13 +133,13 @@
             </div>
 
             <div id="img3">
-                <img src="images/SEASimg.png" id="imge1"> 
+                <img onclick="changeImage3()" src="../images/SEASimg.png" id="imge3"> 
             </div>
-
-            <div id="titre2">
-                <h1>Projets achevés </h1>
-            </div>
-            
+        </div>
+        <br>
+        <h1>Projets achevés </h1>
+        <br>
+        <div id="grid-container">    
             <div id="txt4">
                 <h2>HPeC: architectures électroniques reconfigurables dynamiquement (2019)</h2>
                 <br>
@@ -177,7 +166,7 @@
             </div>
 
             <div id="img4">
-                <img src="images/Malakoff_Humanis.jpeg" id="imge1"> 
+                <img onclick="changeImage4()" src="../images/Malakoff_Humanis.jpeg" id="imge4"> 
             </div> 
 
 
@@ -187,7 +176,7 @@
 
 
 
-
+        <button onclick="topFunction()" id="button" title="Go to top">Haut</button>
         <footer>
             <br>
             <br>
