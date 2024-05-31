@@ -148,7 +148,11 @@ p{/*style pour les paragraphes*/
     color:rgb(116, 116, 116);
 }
 
-
+.carreb:before {height: 15px;/*hauteur*/
+    width: 15px;/*largeur*/
+    background-color: rgb(48, 39, 185);/*couleur*/
+    display: inline-block;/*sur la meme ligne que le texte*/
+}
 
 
 
@@ -204,6 +208,9 @@ table td,th,tr{/*couleurs pour les lignes du tableau qu'on ne veut pas voir*/
 table, td, th{/*bordure du tableau*/
     border: 1px solid;
 }
+
+
+
 form.filter {
     display: flex;
     flex-direction: column;
@@ -214,6 +221,8 @@ fieldset {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
 }
 
 fieldset > div {
@@ -228,6 +237,8 @@ fieldset > div {
     display: flex;
     flex-direction: column;
     gap: 10px; /* Adjust the gap between radio options if needed */
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
 }
 
 #champs {
@@ -235,15 +246,37 @@ fieldset > div {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    
 }
 
 .nom, .titre, .année {
     display: flex;
     flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
 }
 
 .filter-btn {
     display: flex;
     justify-content: center;
-    margin-top: 20px; /* Adjust the margin as needed */
+    margin-top: 20px; 
+   
+     
+}  
+    
+#btn:hover {
+    color: rgb(255, 255, 255);
+    background: rgb(126, 126, 126);
+}
+    
+#btn{
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: red; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+        
 }

@@ -2,7 +2,7 @@
 
 
   document.addEventListener("DOMContentLoaded", function() {
-      var publications = [
+      let publications = [
           { auteur: "Salima Bourbia, Ayoub Karine, Aladine Chetouani, Mohammed El Hassouni, Maher Jridi.", titre: "Deep Learning Multi-View Fusion for Blind 3D Point Cloud Quality Assessment.", date: "Dec 2023", lieu: "Affinity Workshop NAML (North Africans in Machine Learning Workshop) of NeurIPS 2023, New Orleans, United States", type: "article" },
           { auteur: "Sameh Samir, Taheni Damak, Matthieu Saumard, Mohamed Ali Ben Ayed, Maher Jridi, et al.", titre: "Performance analysis of MTS on the VVC encoder.", date: "2023", lieu: "Signal, Image and Video Processing, 2023, ⟨10.1007/s11760-023-02867-7⟩", type: "com" },
           { auteur: "Mélissa Hanafi-Portier, Sarah Samadi, Laure Corbari, Marion Boulard, Elda Miramontes, et al.", titre: "Multiscale spatial patterns and environmental drivers of seamount and island slope megafaunal assemblages along the Mozambique channel.", date: "2023", lieu: "Deep Sea Research Part I: Oceanographic Research Papers, 2023, pp.104198. ⟨10.1016/j.dsr.2023.104198⟩", type: "com" },
@@ -19,17 +19,11 @@
               p.innerHTML = pub.auteur + ' ' + pub.titre + ' ' + pub.lieu + ' ' + pub.date;
               
               
-              
               publicationsContainer.appendChild(p);
-          }
-      }
-      const auteurElement = document.getElementById("auteur");
-      const titreElement = document.getElementById("titre");
-      // Applying font styles
-      auteurElement.style.fontFamily = "Arial, sans-serif";
-      auteurElement.style.fontSize = "16px";
-      auteurElement.style.fontWeight = "bold"; 
-
+             
+            }
+        }
+  
       function contains(substring, string) {
           var found = false;
           for (var i = 0; i <= string.length - substring.length; i++) {
