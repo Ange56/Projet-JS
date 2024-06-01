@@ -314,6 +314,8 @@ table, td, th{/*bordure du tableau*/
     padding: 15px; /* Some padding */
     border-radius: 10px; /* Rounded corners */
     font-size: 18px; /* Increase font size */
+    height: 30px;
+    width: 30px;
     
 }
 #button:hover {
