@@ -1,6 +1,6 @@
 
 
-
+/*------------------------------image --------------------------------------------*/
 document.addEventListener('DOMContentLoaded', function () {
     const image = document.getElementById('img-competences');//séléctionne l'image par son id
     const container = document.getElementById('image-container');//selectionne le conteneur de l'image par son id
@@ -41,14 +41,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+/*--------------------------------------------------------------------------*/
 
 
-
+/*------------------------------texte animation --------------------------------------------*/
 
 document.addEventListener("DOMContentLoaded", function () {
     const textElement = document.getElementById("txt");
     const words = textElement.innerText.split(" ");
-    textElement.innerHTML = ""; // Clear the original text
+    textElement.innerHTML = ""; // efface le texte
 
     let wordIndex = 0;
 
@@ -56,23 +57,99 @@ document.addEventListener("DOMContentLoaded", function () {
         if (wordIndex < words.length) {
             textElement.innerHTML += words[wordIndex] + " ";
             wordIndex++;
-            setTimeout(displayWords, 1000); // 1 second interval between words
+            setTimeout(displayWords, 1000); // 1 seconde d'intervale entre les mots
         } else {
             startAnimation();
         }
     }
 
     function startAnimation() {
-        textElement.style.animation = "slideInOut 8s ease-in-out"; // Slowed down to 8s
-        setTimeout(resetText, 8000); // Reset after the animation duration
+        textElement.style.animation = "slideInOut 8s ease-in-out"; // 8s
+        setTimeout(resetText, 8000); // recommence l'animation
     }
 
     function resetText() {
         textElement.innerHTML = "";
         textElement.style.animation = "";
         wordIndex = 0;
-        setTimeout(displayWords, 1000); // Start the cycle again after a short delay
+        setTimeout(displayWords, 1000); // recommence le cycle après un délai
     }
 
     displayWords();
+});
+
+/*--------------------------------------------------------------------------*/
+
+
+
+/*------------------------------telephne --------------------------------------------*/
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    let copiedNumber = '';
+
+    // Listen for copy events
+    document.addEventListener('copy', function (e) {
+        const selectedText = window.getSelection().toString();
+        const phonePattern = /\+33\d{9}/;
+
+        if (phonePattern.test(selectedText)) {
+            copiedNumber = selectedText;
+            setTimeout(() => {
+                const userConfirmed = confirm(`Si vous voulez appeler ce numéro : ${copiedNumber}, entrez le de nouveau dans le champ ci-dessous puis validez.`);
+                if (userConfirmed) {
+                    showPhonePrompt();
+                }
+            }, 100);
+        }
+    });
+
+    // Create and show the prompt
+    function showPhonePrompt() {
+        const phonePrompt = document.createElement('div');
+        phonePrompt.id = 'phonePrompt';
+        phonePrompt.style.display = 'block';
+        phonePrompt.innerHTML = `
+            <label for="phoneInput">Si vous voulez appeler ce numéro, entrez le de nouveau puis validez:</label>
+            <input type="text" id="phoneInput">
+            <button id="validateButton">Valider</button>
+        `;
+        document.body.appendChild(phonePrompt);
+
+        document.getElementById('validateButton').addEventListener('click', function () {
+            const phoneInput = document.getElementById('phoneInput').value;
+            if (phoneInput === copiedNumber) {
+                console.log(`Vous appelez ce numéro : ${phoneInput}`);
+                playRingtone();
+                hidePhonePrompt();
+            } else {
+                alert('Le numéro saisi ne correspond pas.');
+            }
+        });
+    }
+
+    // Play ringtone for 5 seconds
+    function playRingtone() {
+        let ringtone = document.getElementById('ringtone');
+        if (!ringtone) {
+            ringtone = document.createElement('audio');
+            ringtone.id = 'ringtone';
+            ringtone.src = 'path_to_your_ringtone.mp3';
+            document.body.appendChild(ringtone);
+        }
+        ringtone.play();
+        setTimeout(() => {
+            ringtone.pause();
+            ringtone.currentTime = 0;
+        }, 5000);
+    }
+
+    // Hide the phone prompt
+    function hidePhonePrompt() {
+        const phonePrompt = document.getElementById('phonePrompt');
+        if (phonePrompt) {
+            document.body.removeChild(phonePrompt);
+        }
+    }
 });

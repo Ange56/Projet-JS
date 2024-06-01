@@ -122,11 +122,11 @@ h1{/*style pour les titres1*/
     font-size: 38px;
     margin:0;
 }
-p{/*style pour les paragraphes*/
+.publication{/*style pour les paragraphes*/
     font-family: 'Roboto', sans-serif;
     text-align: justify;
 }
-#page{
+#publication-container{
     display: flex;/*page responsive*/
     flex-direction: column;
     padding-right: 10%;/*marge des 2 côtés*/
@@ -147,6 +147,44 @@ p{/*style pour les paragraphes*/
 .light{/*couleur de certaines parties du texte*/
     color:rgb(116, 116, 116);
 }
+
+
+
+/*----------------------filtre--------------------------*/
+.filter-container {
+    display: flex;/*page responsive*/
+    flex-direction: column;
+    padding-right: 10%;/*marge des 2 côtés*/
+    padding-left:10%;	
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+input[type="text"], input[type="date"] {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.filter-group {
+    display: flex;
+    align-items: center; /* aligne les items au centre verticalement */
+    margin-bottom: 10px; /* espace entre les groupes de filtres */
+}
+
+.filter-group label {
+    margin-left: 5px; /* espace entre le bouton radio et le label */
+}
+
+
+
+/*----------------------------------------------------*/
+
+
+
+
+
+
 
 
 
