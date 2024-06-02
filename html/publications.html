@@ -62,43 +62,79 @@
                 </ul>
             </nav>
         </header>
-        <div id="page"><!--corps de la page-->
+
+
+
+        <h1>Publications</h1>
+
+        <div class="filter-container">
             <br>
-            <h1>Publications</h1>
-            <p>
+            <label for="auteur">Nom de l'auteur :</label>
+            <input type="text" id="auteur" name="auteur">
+       
+            <label for="titre">Titre de la publication :</label>
+            <input type="text" id="titre" name="titre">
+       
+            <label for="annee">Année de publication :</label>
+            <input type="text" id="annee" name="annee">
+       
+            <div class="filter-group">
+                <input type="radio" id="revue" name="type" value="revue">
+                <label for="revue">Article de revue</label>
+            </div>
+            <div class="filter-group">
+                <input type="radio" id="communication" name="type" value="communication">
+                <label for="communication">Communication</label>
+            </div>
+            <div class="filter-group">
+                <input type="radio" id="toutes" name="type" value="toutes" checked>
+                <label for="toutes">Toutes</label>
+            </div>
+       </div>
+       <br>
+
+
+        <div id="publication-container"><!--corps de la page-->
+            <br>
+            
+            <div class="publication" data-auteur="Salima Bourbia , Ayoub Karine , Aladine Chetouani , Mohammed El Hassouni , Maher Jridi" data-titre="Deep Learning Multi-View Fusion for Blind 3D Point Cloud Quality Assessment." data-annee="2023" data-type="communication">
                 <span class="carreb"></span><!--carré bleu-->
                 Salima Bourbia , Ayoub Karine , Aladine Chetouani , Mohammed El Hassouni , Maher Jridi.
                 <b>Deep Learning Multi-View Fusion for Blind 3D Point Cloud Quality Assessment.</b>
                 <span class="light"><i>Affinity Workshop NAML (North Africans in Machine Learning Workshop) of NeurIPS 2023</i>, Dec 2023, New Orleans, United States</span>
-            </p>
-            <p>	
+            </div>
+            <br>
+            <div class="publication" data-auteur="Sameh Samir , Taheni Damak , Matthieu Saumard , Mohamed Ali Ben Ayed , Maher Jridi , et al." data-titre="Performance analysis of MTS on the VVC encoder." data-annee="2023" data-type="revue">
                 <span class="carrer"></span><!--carré rose-->
                 Sameh Samir , Taheni Damak , Matthieu Saumard , Mohamed Ali Ben Ayed , Maher Jridi , et al.
                 <br>
                 <b>Performance analysis of MTS on the VVC encoder.</b>
                 <br>
                 <span class="light">Signal, Image and Video Processing, 2023, ⟨10.1007/s11760-023-02867-7⟩</span>
-            </p>
-            <p>
+            </div>
+            <br>
+            <div class="publication" data-auteur="Mélissa Hanafi-Portier , Sarah Samadi , Laure Corbari , Marion Boulard , Elda Miramontes , et al." data-titre="Multiscale spatial patterns and environmental drivers of seamount and island slope megafaunal assemblages along the Mozambique channel." data-annee="2023" data-type="revue">
                 <span class="carrer"></span><!--carré rose-->
                 Mélissa Hanafi-Portier , Sarah Samadi , Laure Corbari , Marion Boulard , Elda Miramontes , et al.
                 <br>
                 <b>Multiscale spatial patterns and environmental drivers of seamount and island slope megafaunal assemblages along the Mozambique channel.</b>
                 <br>
                 <span class="light">Deep Sea Research Part I: Oceanographic Research Papers, 2023, pp.104198. ⟨10.1016/j.dsr.2023.104198⟩</span>
-            </p>
-            <p>
+            </div>
+            <br>
+            <div class="publication" data-auteur="Salima Bourbia , Ayoub Karine , Aladine Chetouani , Mohammed El Hassouni , Maher Jridi." data-titre="Multi-stream POINTNet-based Model For Blind Geometric Point Cloud Quality Assessment" data-annee="2023" data-type="communication">
                 <span class="carreb"></span><!--carré bleu-->
                 Salima Bourbia , Ayoub Karine , Aladine Chetouani , Mohammed El Hassouni , Maher Jridi.
                 <b>Multi-stream POINTNet-based Model For Blind Geometric Point Cloud Quality Assessment.</b>
                 <span class="light"><i>20th International Conference on Content-based Multimedia Indexing</i>, Sep 2023, Orléans, France</span>
-            </p>
-            <p>
+            </div>
+            <br>
+            <div class="publication" data-auteur="Salima Bourbia , Ayoub Karine , Aladine Chetouani , Mohammed El Hassouni , Maher Jridi." data-titre="Évaluation de la qualité de nuages de points 3D sans référence en utilisant un transformer et la saillance visuelle" data-annee="2023" data-type="communication">
                 <span class="carreb"></span><!--carré bleu-->
                 Salima Bourbia , Ayoub Karine , Aladine Chetouani , Mohammed El Hassouni , Maher Jridi.
                 <b>Évaluation de la qualité de nuages de points 3D sans référence en utilisant un transformer et la saillance visuelle.</b>
                 <span class="light"><i>Colloque Francophone de Traitement du Signal et des Images (GRETSI) 2023</i>, Aug 2023, Grenoble, France</span>
-            </p>
+            </div>
             <br>
             <br>
         </div>
@@ -127,26 +163,34 @@
                 <tr>
                     <td class="col">
                         Adresse : CS 42807 20 rue Cuirassé Bretagne 29200 Brest
-                        <br>Téléphone : +33 2 98 03 84 00
+                        <br>Téléphone : <span class="telephone">+33 2 98 03 84 00</span>
                     </td>
                     <td class="col">
                         Adresse : 33 Q Avenue du Champ de Manœuvres 44470 Carquefou
-                        <br>Téléphone : +33 2 30 13 05 60
+                        <br>Téléphone :<span class="telephone"> +33 2 30 13 05 60</span>
                     </td>
                     <td class="col">
                         Adresse : 8 Avenue Croix Guérin 14000 Caen
-                        <br>Téléphone : +33 2 30 31 03 20
+                        <br>Téléphone :<span class="telephone"> +33 2 30 31 03 20</span>
                     </td>
                     <td class="col">
                         Adresse : Campus RSB 2 rue Robert d’Abrissel 35065 Rennes
-                        <br>Téléphone : +33 2 30 13 02 50
+                        <br>Téléphone :<span class="telephone"> +33 2 30 13 02 50 </span>
                     </td>
                     <td class="col">
                         Adresse : Campus Saint Jean 5 Rue Maurice Labrousse 92160 Antony
-                        <br>Téléphone : +33 2 98 03 84 00
+                        <br>Téléphone :<span class="telephone"> +33 2 98 03 84 00 </span>
                     </td>
                 </tr>
             </table>
+
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <p id="message"></p>
+                    <button id="btnClose">Fermer</button>
+                </div>
+            </div>
+
             <br>
             <table id="tab2" cellpadding="10"><!--autre tableau pour avoir seulement 3 colonnes avec nos noms et liens vers linkedin-->
                 <tr>

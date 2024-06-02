@@ -183,9 +183,105 @@ form{
     border-radius: 5px;
     padding: 4px;
 }
-#fin:hover{
-    background-color: #616161;/*quand on passe sur le bouton pour envoyer, il change de couleur*/
+.error-message {
+    color: grey;
+    font-size: 12px;
+    display: none; /* Hide error messages by default */
 }
+
+
+
+/*----------------------- jeu ---------------------------*/
+#jeu{
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+    font-size: 20px;
+}
+/*----------*/
+#gameContainer{
+    display: none;
+
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    justify-content: center;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border: 1px solid #000;
+    font-size: 2em;
+}
+
+
+
+
+.draggable-images {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.draggable-images #cross {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    cursor: grab;
+    
+}
+.cell #cross {
+    width: 50px;
+    height: 50px;
+}
+
+
+/*-------------------------------------------------------*/
+
+
+
+
+
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0, 0.5);
+    
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    text-align: center;
+   
+}
+
+
+
+
+
+
 
 
 
