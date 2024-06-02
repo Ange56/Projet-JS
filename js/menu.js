@@ -1,64 +1,59 @@
-//page accueil
-
-
-
-
-
 /*------------------------------MENU------------------------------*/
 
 
 /*Loader*/
-function loader(){
-    removeBootstrapLinks();
+function loader(){/*fonction qui efface le loader et remet la page*/
+    removeBootstrapLinks();//enlève les liens bootstrap qui gène notre css
     chronometer();//commencer le chrono
-    let load = document.getElementById("reload");
-    load.style.display = 'none';
-    let nomPage = document.title;
-    let page = document.getElementById("page");
+    let load = document.getElementById("reload");//récupère le loader
+    load.style.display = 'none';//le cache
+    let nomPage = document.title;//récupère le nom de la page
+    let page = document.getElementById("page");//récupère le contenu de la page
     if(nomPage == "Membres"){ //car la page membres utilise grid et non flex
         page.style.display = 'grid';
-        verifySize();
+        verifySize();//vérifie la taille pour ajuster le responsive
+        setTimeout(grattage, 100);//toutes les 100 milisecondes on vérifie si on gratte la photo de Karine (dans l'autre fichier)
     }
-    else{
+    else{//sinon par défaut on met la page en flex
         page.style.display = 'flex';
     }
-    let menu = document.getElementById("menu");
-    menu.style.display = 'flex';
-    let footer = document.getElementsByTagName("footer")[0];
-    let table = document.getElementsByTagName("footer")[0].getElementsByTagName("table");
-    table[0].style.display = 'flex';
+    let menu = document.getElementById("menu");//on récupère le menu
+    menu.style.display = 'flex';//on l'affiche en flex
+    let footer = document.getElementsByTagName("footer")[0];//récupère le footer
+    let table = document.getElementsByTagName("footer")[0].getElementsByTagName("table");//récupère le tableau du footer
+    table[0].style.display = 'flex';//affiche les tableaux du footer
     table[1].style.display = 'flex';
     footer.style.backgroundColor = 'black';/*couleur de fond du footer*/
 }
 
 function removeBootstrapLinks(){//enlève les liens bootstrap qui peuvent correspondre à d'autres classe déjà mises
-    let bootstrapElements = document.querySelectorAll('.bootstrap');
-    bootstrapElements.forEach(element => element.remove());
+    let bootstrapElements = document.querySelectorAll('.bootstrap');//récupère tout ce qui contient bootstrap
+    bootstrapElements.forEach(element => element.remove());//supprime chaque élément du tableau d'au dessus
 }
 
-function load(){
+function load(){//au bout de 2 secondes appelle la fonction qui efface le loader
     setTimeout(loader,2000);
 }
-function size(){
-    let page = document.getElementById("page");
-    if (window.matchMedia("(max-width: 880px)").matches) {
+function size(){//vérifie la taille de la page
+    let page = document.getElementById("page");//récupère la page
+    if(window.matchMedia("(max-width: 880px)").matches){//si l'écran est plus petit que 880 px
         // Modifier les propriétés CSS en JavaScript
-        page.style.display = "block";
+        page.style.display = "block";//la page s'affiche en colonne
         page.style.textAlign = "center";
         page.style.alignItems = "center";
     }
-    else{
+    else{//sinon elle s'affiche par défaut
         page.style.display = "grid";
         page.style.textAlign = "";
         page.style.alignItems = "";
     }
 }
-function verifySize(){//vérifie si la taille de l'écran change
+function verifySize(){//vérifie si la taille de l'écran change toutes les 500 milisecondes
     setInterval(size, 500);
 }
 
 
-/*Horloge*/
+/*------------------Horloge------------------------------*/
 function addSegments(digitId){//ajoute les segments de l'horloge numérique
     let chiffre = document.getElementById(digitId);//récupère l'endroit où est le chiffre
     let segment;
@@ -160,26 +155,26 @@ function updateHour(){//affiche l'heure
 
 
 
-/*Chronomètre du temps passé sur la page*/
+/*--------------------Chronomètre du temps passé sur la page-------------------------*/
 function newChrono(debut) {
-    let chrono = document.getElementById('time');
-    let temps = (Date.now() - debut) / 1000;
+    let chrono = document.getElementById('time');//récupère l'emplacement
+    let temps = (Date.now() - debut) / 1000;//met le temps en secondes
     temps = parseInt(temps);//transforme la chaine de caractères en entiers en ne prenant que le nombre avant virgule
     
     
-    let minutes = parseInt(temps / 60); //arrondi au chiffre avant la virgule
+    let minutes = parseInt(temps / 60); //arrondi au chiffre avant la virgule pour convertir en minutes
     let secondes = temps % 60;
-    secondes = secondes < 10 ? '0' + secondes : secondes;
+    secondes = secondes < 10 ? '0' + secondes : secondes; //ajoute un zéro si il n'y a qu'un chiffre
 
-    let tempsFinal = minutes + ':' + secondes;
-    chrono.textContent = tempsFinal;
+    let tempsFinal = minutes + ':' + secondes;//affiche minutes et secondes
+    chrono.textContent = tempsFinal;//affiche le temps passé
 }
 
-function chronometer(){
-    let debut = Date.now();
+function chronometer(){//démarre le chronomètre
+    let debut = Date.now();//prend le temps de début
     setInterval(function() {
-        newChrono(debut);
-    }, 1000);
+        newChrono(debut);//appelle la fonction qui affiche le chrono
+    }, 1000);//toutes les secondes
 }
 
 
@@ -193,9 +188,9 @@ function clicLogo(){
 
 /*Alerte quand on clique sur le bouton membres*/
 function alerte(){
-    let navigation = confirm("Voulez-vous être redirigé vers la page membres ?");
-    if(navigation){
-        window.location.replace("membres.html");
+    let navigation = confirm("Voulez-vous être redirigé vers la page membres ?");//message de confirmation
+    if(navigation){//si l'utilisateur clique sur oui
+        window.location.replace("membres.html");//on est redirigé
     }
 }
 
@@ -205,27 +200,27 @@ function alerte(){
 function couleurs(){
     let menu = document.getElementById("menu");//on récupère le menu
     let bouton = menu.getElementsByClassName("bouton");//tableau contenant tous les boutons du menu
-    let sousBouton = menu.getElementsByClassName("sous-bouton");
-    let boutonTab = [];
-    for(let btn of bouton){
+    let sousBouton = menu.getElementsByClassName("sous-bouton");//recupère les sous-boutons
+    let boutonTab = [];//tableau des boutons
+    for(let btn of bouton){//ajoute tous les boutons normaux au tableau
         boutonTab.push(btn);
     } 
-    for(let sousBtn of sousBouton){
+    for(let sousBtn of sousBouton){//ajoute tous les sous-boutons au tableau
         boutonTab.push(sousBtn);
     }
     let couleurAvant;
     let couleurApres;
     let nomBouton;
-    for(let element of boutonTab){
-        element.addEventListener("mouseover", ()=>{
-            couleurAvant = getComputedStyle(element).backgroundColor;
-            nomBouton = element.name;
-            console.log("La couleur du bouton ", nomBouton, " est : ", couleurAvant);
+    for(let element of boutonTab){//pour chaque bouton
+        element.addEventListener("mouseover", ()=>{//si la souris passe dessus
+            couleurAvant = getComputedStyle(element).backgroundColor;//récupère la couleur
+            nomBouton = element.name;//récupère le nom du bouton
+            console.log("La couleur du bouton ", nomBouton, " est : ", couleurAvant);//affiche la couleur
         });
-        element.addEventListener("mouseout", ()=>{
-            couleurApres = getComputedStyle(element).backgroundColor;
+        element.addEventListener("mouseout", ()=>{//quand la souris n'est plus dessus
+            couleurApres = getComputedStyle(element).backgroundColor;//la nouvelle couleur est récupérée
             nomBouton = element.name;
-            console.log("La couleur du bouton ", nomBouton, " est : ", couleurApres);
+            console.log("La couleur du bouton ", nomBouton, " est : ", couleurApres);//on affiche la nouvelle couleur
         });
     }
 }
@@ -233,7 +228,7 @@ function couleurs(){
 
 /*MAIN*/
 function main(){//appelle toutes les fonctions
-    load();
+    load();//efface le loader
     init();//initialise les chiffres en sombre
     updateHour();//affiche l'heure une première fois
     points();//affiche les points une première fois
@@ -243,7 +238,7 @@ function main(){//appelle toutes les fonctions
     //appelle la fonction qui allume ou éteint les points, toutes les secondes
     setInterval(points,1000);
 
-    couleurs();
+    couleurs();//récupère les couleurs des boutons
 }
 main();
 
