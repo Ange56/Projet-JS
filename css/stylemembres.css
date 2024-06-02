@@ -133,7 +133,7 @@ p{/*style des paragraphes*/
 #page{/*on utilise cette fois le grid pour que la page soit responsive*/
     display: none;/*le temps que loader charge*/
     grid-template-columns: 10% 280px 16% 280px 10%;/*on crée des colonnes pour la grille*/
-    grid-template-rows: 40px auto 520px auto 460px auto 500px auto 520px auto 480px 100px;/*on crée des lignes pour la grille*/
+    grid-template-rows: 40px auto auto auto auto auto auto auto auto auto auto 100px;/*on crée des lignes pour la grille*/
 }
 .card{/*création d'une carte*/
     background-color: white;/*couleur du fond*/
@@ -156,10 +156,10 @@ p{/*style des paragraphes*/
     border-radius: 50%;
     top: 50%; /* Placez l'image au milieu de son conteneur */
     left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
+    transform: translate(-50%, -50%);/* correctement la photo dessus*/
+    position: absolute;/*permet de la déplacer comme on veut*/
 }
-#gratter-box {
+#gratter-box {/*met le background blanc derrière l'image comme les autres cards*/
     text-align: center;
     padding-top: 2%;
     height: 150px;
@@ -341,22 +341,13 @@ hr{/*trait qui ne colle pas les bords de la carte*/
     box-shadow: 0 5px #999;
     position: absolute;
     right:20px;
-    
-    z-index:1;
+    z-index:1;/*le met en arrière plan par rapport aux boutons déroulants du menu*/
 }
 
-#bouton-edition:hover{
-    background-color: red;
-}
-
-#active-edition{
-    background-color: red;
-}
-
-#bouton-edition:active {
+#bouton-edition:active {/*quand on appuie dessus ça change la couleur */
     background-color: #CA0000;
     box-shadow: 0 5px #666;
-    transform: translateY(2px);
+    transform: translateY(2px);/*effet de translation*/
 }
 
 
@@ -430,7 +421,8 @@ table, td, th{/*bordure du tableau*/
 
 
 /*------------HORLOGE---------------*/
-.segment0 { left: 2.5px; top: 0.625px; width: 7.5px; height: 0px; }/*20px to 10px divide par 2*/
+/*taille des segments de l'horloge*/
+.segment0 { left: 2.5px; top: 0.625px; width: 7.5px; height: 0px; }
 .segment1 { left: 0.625px; top: 2.5px; width: 0px; height: 7.5px; }
 .segment2 { left: 11.875px; top: 2.5px; width: 0px; height: 7.5px; }
 .segment3 { left: 2.5px; top: 11.875px; width: 7.5px; height: 0px; }
@@ -438,16 +430,16 @@ table, td, th{/*bordure du tableau*/
 .segment5 { left: 11.875px; top: 13.75px; width: 0px; height: 7.5px; }
 .segment6 { left: 2.5px; top: 23.125px; width: 7.5px; height: 0px; }
 
-.led {
+.led {/*les 2 points */
     position: absolute;
     border-radius: 1.25px 1.25px 1.25px 1.25px;
-    height : 1.25px;
-    width : 1.25px;
-    background: white;
+    height : 1.25px;/*hauteur*/
+    width : 1.25px;/*largeur*/
+    background: white;/*couleur*/
 
 }
 
-.segment {
+.segment {/*chaque segment de l'horloge*/
     position: absolute;
     border-radius: 1.25px;
     border: 1.25px solid white;
@@ -460,7 +452,7 @@ table, td, th{/*bordure du tableau*/
     left:12.5px;
 }
 
-.clock > div {
+.clock > div {/*la taille de la div horloge*/
     list-style: none;
     display: inline-block;
     position: relative;
@@ -470,7 +462,7 @@ table, td, th{/*bordure du tableau*/
     height: 25px;
 }
 
-.clock > .colon {
+.clock > .colon {/*la colonne des points*/
     font-size: 12.5px;
     height: 15px;
     width: 5px;

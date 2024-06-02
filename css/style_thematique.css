@@ -235,7 +235,8 @@ table, td, th{/*bordure du tableau*/
 
 
 /*------------HORLOGE---------------*/
-.segment0 { left: 2.5px; top: 0.625px; width: 7.5px; height: 0px; }/*20px to 10px divide par 2*/
+/*taille des segments de l'horloge*/
+.segment0 { left: 2.5px; top: 0.625px; width: 7.5px; height: 0px; }
 .segment1 { left: 0.625px; top: 2.5px; width: 0px; height: 7.5px; }
 .segment2 { left: 11.875px; top: 2.5px; width: 0px; height: 7.5px; }
 .segment3 { left: 2.5px; top: 11.875px; width: 7.5px; height: 0px; }
@@ -243,16 +244,16 @@ table, td, th{/*bordure du tableau*/
 .segment5 { left: 11.875px; top: 13.75px; width: 0px; height: 7.5px; }
 .segment6 { left: 2.5px; top: 23.125px; width: 7.5px; height: 0px; }
 
-.led {
+.led {/*les 2 points */
     position: absolute;
     border-radius: 1.25px 1.25px 1.25px 1.25px;
-    height : 1.25px;
-    width : 1.25px;
-    background: white;
+    height : 1.25px;/*hauteur*/
+    width : 1.25px;/*largeur*/
+    background: white;/*couleur*/
 
 }
 
-.segment {
+.segment {/*chaque segment de l'horloge*/
     position: absolute;
     border-radius: 1.25px;
     border: 1.25px solid white;
@@ -265,7 +266,7 @@ table, td, th{/*bordure du tableau*/
     left:12.5px;
 }
 
-.clock > div {
+.clock > div {/*la taille de la div horloge*/
     list-style: none;
     display: inline-block;
     position: relative;
@@ -275,7 +276,7 @@ table, td, th{/*bordure du tableau*/
     height: 25px;
 }
 
-.clock > .colon {
+.clock > .colon {/*la colonne des points*/
     font-size: 12.5px;
     height: 15px;
     width: 5px;
