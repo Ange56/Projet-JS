@@ -136,6 +136,13 @@ function card5eLigne(){
 
 
 
+function changerNoms(){
+    let cards = document.getElementById
+
+
+}
+
+
 
 function main(){
     grattage();
