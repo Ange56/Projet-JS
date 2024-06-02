@@ -21,55 +21,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function displayModalFromElement(textId, imgId, contentId) {
+    // Récupère l'élément de texte, le titre, l'URL de l'image et le contenu
     var textElement = document.getElementById(textId);
     var title = textElement.querySelector('h2').innerText;
     var imageUrl = document.getElementById(imgId).querySelector('img').src;
-    /*var content = textElement.querySelector('p').innerText;*/
     var contentElement = document.getElementById(contentId);
     var content = contentElement.innerHTML;
     
-
+    // Appelle la fonction createModal avec les données récupérées
     createModal(textId + '_modal', title, imageUrl, content);
 }
 
 
 function createModal(id, title, imageUrl, content) {
+    // Définit la longueur maximale du contenu du modal
     var maxLength = 150;
-
     var ellipsis = '...';
 
 
-
-
-    // Function to truncate the text
     function truncateText(text, maxLength, ellipsis) {
-        var lengthWithEllipsis = maxLength - ellipsis.length;
-        var truncated = text.substring(0, lengthWithEllipsis);
-        var finalText = truncated + ellipsis;
-        return finalText;
+        var lengthWithEllipsis = maxLength - ellipsis.length;    // Calcul de la longueur maximale du texte tronqué en tenant compte de la longueur de l'ellipse
+        var truncated = text.substring(0, lengthWithEllipsis);    // Extraction d'une sous-chaîne de caractères du texte original, en commençant par l'index 0 jusqu'à la longueur maximale avec l'ellipse
+        var finalText = truncated + ellipsis;    // Concaténation de la sous-chaîne tronquée avec l'ellipse pour former le texte final tronqué
+        return finalText;    // Retourne le texte final tronqué
     }
 
-    // Trim the content to remove leading/trailing whitespace
+    // Supprime les espaces vides au début et à la fin du contenu
     var trimmedContent = content.trim();
+    // Tronque le contenu si sa longueur dépasse la longueur maximale
     var truncatedContent = trimmedContent.length > maxLength ? truncateText(trimmedContent, maxLength, ellipsis) : trimmedContent;
 
+    // Affiche les informations sur le contenu dans la console pour le débogage
     console.log("Original content length: " + content.length);
     console.log("Trimmed content length: " + trimmedContent.length);
     console.log("Truncated content length: " + truncatedContent.length);
     console.log("Truncated content: " + truncatedContent);
 
+     // Vérifie si un modal avec l'ID donné existe déjà
     var existingModal = document.getElementById(id);
     if (existingModal) {
+         // Met à jour le contenu du modal existant
         existingModal.querySelector('.modal-title').innerText = title;
         existingModal.querySelector('.modal-image').src = imageUrl;
         existingModal.querySelector('.modal-content').innerText = truncatedContent;
 
+        // Affiche le modal et désactive le défilement du corps de la page
         existingModal.setAttribute('aria-hidden', 'false');
         document.body.classList.add('no-scroll'); 
         return;
     }
 
-
+    // Crée un nouvel élément de modal et définit ses attributs et contenu
     var modal = document.createElement('div');
     modal.id = id;
     modal.className = 'c-dialog';
@@ -85,9 +87,10 @@ function createModal(id, title, imageUrl, content) {
     closeButton.style.cursor = 'pointer';
     closeButton.style.float = 'right';
     closeButton.onclick = function() {
+        // Gère la fermeture du modal lors du clic sur le bouton de fermeture
         var modal = document.getElementById(id);
         modal.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('no-scroll'); // Add this line to re-enable scroll
+        document.body.classList.remove('no-scroll');  // Réactive le défilement du corps de la page
 
     };
     
@@ -107,49 +110,55 @@ function createModal(id, title, imageUrl, content) {
     modalContent.className = 'modal-content';
     modalContent.innerHTML = truncatedContent;
     
+     // Ajoute les éléments de contenu au modal
     modalBox.appendChild(closeButton);
     modalBox.appendChild(modalTitle);
     modalBox.appendChild(modalImage);
     modalBox.appendChild(modalContent);
     modal.appendChild(modalBox);
     
+    // Ajoute le modal au corps de la page
     document.body.appendChild(modal);
-    document.body.classList.add('no-scroll');
+    document.body.classList.add('no-scroll');// Désactive le défilement du corps de la page
 }
 
 /*------------------------------telephne --------------------------------------------*/
 
 function jouerSonnerie() {
+    //fonction pour jouer la sonnerie
     var audio = new Audio('../son/sonnerie2.mp3');
     audio.play();
 }
-document.addEventListener('copy', function(e) {
-    var parentElement = window.getSelection().anchorNode.parentNode;
+
+document.addEventListener('copy', function(e) { //ecouteur d'événements pour la copie de texte
+    var parentElement = window.getSelection().anchorNode.parentNode; //obtient l'élément parent du texte selectionné 
 
         // Vérifier si l'élément parent est un élément de numéro de téléphone
         if (parentElement.classList.contains('telephone')) {
-            var numeroCopie = parentElement.innerText.trim();
+            var numeroCopie = parentElement.innerText.trim(); //obtient de téléphone sélectionné    .tim() permzt de supprmer es espaces blancs au débu et fin chaine caract
             console.log('Numéro copié :', numeroCopie);
 
-            var numeroEntree = prompt('Si vous voulez appeler ce numéro : ' + numeroCopie + ', entrez-le de nouveau dans le champ ci-dessous puis validez');
-            if (numeroEntree !== null && numeroEntree === numeroCopie) {
-                jouerSonnerie();
+            var numeroEntree = prompt('Si vous voulez appeler ce numéro : ' + numeroCopie + ', entrez-le de nouveau dans le champ ci-dessous puis validez');// affiche une message avec une zone de texte pour entrer a nouveau le numéro 
+            if (numeroEntree !== null && numeroEntree === numeroCopie) { // si le numéro entré correspond au numéro copié
+                jouerSonnerie(); //joue la sonnerie
                 afficherMessage('Vous appelez ce numéro : ' + numeroCopie);
             }
-            
+
         }
 });
 
 function afficherMessage(message) {
-    var modal = document.getElementById("myModal");
-    var modalContent = document.querySelector(".modal-content");
-    var messageElement = document.getElementById("message");
+    //fonction qui affiche un message dans la fenetre modale
+    
+    var modal = document.getElementById("myModal"); //obtient l'élément de la fenêtre modale et le message a afficher
+    
+    
+    var modalContent = document.querySelector(".modal-content"); // sélection l'élément du html qui à la classe css ".model-content"
+    var messageElement = document.getElementById("message");  // sélection l'élément du html qui à l'id message'
 
+    /*---------------------- CSS ------------------------*/
     messageElement.textContent = message;
     modal.style.display = "block";
-
-    
-
     modalContent.style.width = "30%"; // Réduire la largeur à 40%
     modalContent.style.left = "30%"; // Ajuster la position gauche pour centrer horizontalement
     modalContent.style.display = "flex";
@@ -157,10 +166,10 @@ function afficherMessage(message) {
     modalContent.style.justifyContent = "center";
     modalContent.style.alignItems = "center";
     modalContent.style.border = "2px solid #000";
+/*---------------------------------------------------------*/
 
-
-    var btnClose = document.getElementById("btnClose");
-    btnClose.onclick = function() {
+    var btnClose = document.getElementById("btnClose"); //selevtion de l'element du html qui a l'id btnclose
+    btnClose.onclick = function() { //lorsque l'utilisateur clique sur le bouton fermé change la propriété du css pour cacher la fenetre modele
         modal.style.display = "none";
     }
 

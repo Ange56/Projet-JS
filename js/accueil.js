@@ -47,32 +47,32 @@ document.addEventListener('DOMContentLoaded', function () {
 /*------------------------------texte animation --------------------------------------------*/
 
 document.addEventListener("DOMContentLoaded", function () {
-    const textElement = document.getElementById("txt");
-    const words = textElement.innerText.split(" ");
+    const textElement = document.getElementById("txt"); // obtient l'element avec id
+    const words = textElement.innerText.split(" "); //divise le texte obtenu en mots separes
     textElement.innerHTML = ""; // efface le texte
 
     let wordIndex = 0;
 
     function displayWords() {
-        if (wordIndex < words.length) {
-            textElement.innerHTML += words[wordIndex] + " ";
-            wordIndex++;
+        if (wordIndex < words.length) { //si tou tles elements n'ont pas été affichés
+            textElement.innerHTML += words[wordIndex] + " "; //ajoute 1 mot à la fois avec un espace à la fin 
+            wordIndex++; //passe au mot suivant 
             setTimeout(displayWords, 1000); // 1 seconde d'intervale entre les mots
         } else {
-            startAnimation();
+            startAnimation(); // declanche l'anitamtion après avoir affiché tous les mots
         }
     }
 
     function startAnimation() {
-        textElement.style.animation = "slideInOut 8s ease-in-out"; // 8s
-        setTimeout(resetText, 8000); // recommence l'animation
+        textElement.style.animation = "slideInOut 8s ease-in-out"; // aimation css sur l'élément  8s
+        setTimeout(resetText, 8000); // reinitailise le text eaprès 8s
     }
 
     function resetText() {
-        textElement.innerHTML = "";
-        textElement.style.animation = "";
-        wordIndex = 0;
-        setTimeout(displayWords, 1000); // recommence le cycle après un délai
+        textElement.innerHTML = ""; //efface le contenu de l'élément texteElement
+        textElement.style.animation = ""; //reinitailise l'animation css
+        wordIndex = 0; // reinitialise index mots
+        setTimeout(displayWords, 1000); // recommence le cycle après un délai 1s
     }
 
     displayWords();
@@ -85,20 +85,22 @@ document.addEventListener("DOMContentLoaded", function () {
 /*------------------------------telephne --------------------------------------------*/
 
 function jouerSonnerie() {
+    //fonction pour jouer la sonnerie
     var audio = new Audio('../son/sonnerie2.mp3');
     audio.play();
 }
-document.addEventListener('copy', function(e) {
-    var parentElement = window.getSelection().anchorNode.parentNode;
+
+document.addEventListener('copy', function(e) { //ecouteur d'événements pour la copie de texte
+    var parentElement = window.getSelection().anchorNode.parentNode; //obtient l'élément parent du texte selectionné 
 
         // Vérifier si l'élément parent est un élément de numéro de téléphone
         if (parentElement.classList.contains('telephone')) {
-            var numeroCopie = parentElement.innerText.trim();
+            var numeroCopie = parentElement.innerText.trim(); //obtient de téléphone sélectionné    .tim() permzt de supprmer es espaces blancs au débu et fin chaine caract
             console.log('Numéro copié :', numeroCopie);
 
-            var numeroEntree = prompt('Si vous voulez appeler ce numéro : ' + numeroCopie + ', entrez-le de nouveau dans le champ ci-dessous puis validez');
-            if (numeroEntree !== null && numeroEntree === numeroCopie) {
-                jouerSonnerie();
+            var numeroEntree = prompt('Si vous voulez appeler ce numéro : ' + numeroCopie + ', entrez-le de nouveau dans le champ ci-dessous puis validez');// affiche une message avec une zone de texte pour entrer a nouveau le numéro 
+            if (numeroEntree !== null && numeroEntree === numeroCopie) { // si le numéro entré correspond au numéro copié
+                jouerSonnerie(); //joue la sonnerie
                 afficherMessage('Vous appelez ce numéro : ' + numeroCopie);
             }
 
@@ -106,15 +108,17 @@ document.addEventListener('copy', function(e) {
 });
 
 function afficherMessage(message) {
-    var modal = document.getElementById("myModal");
-    var modalContent = document.querySelector(".modal-content");
-    var messageElement = document.getElementById("message");
+    //fonction qui affiche un message dans la fenetre modale
+    
+    var modal = document.getElementById("myModal"); //obtient l'élément de la fenêtre modale et le message a afficher
+    
+    
+    var modalContent = document.querySelector(".modal-content"); // sélection l'élément du html qui à la classe css ".model-content"
+    var messageElement = document.getElementById("message");  // sélection l'élément du html qui à l'id message'
 
+    /*---------------------- CSS ------------------------*/
     messageElement.textContent = message;
     modal.style.display = "block";
-
-    
-
     modalContent.style.width = "30%"; // Réduire la largeur à 40%
     modalContent.style.left = "30%"; // Ajuster la position gauche pour centrer horizontalement
     modalContent.style.display = "flex";
@@ -122,10 +126,10 @@ function afficherMessage(message) {
     modalContent.style.justifyContent = "center";
     modalContent.style.alignItems = "center";
     modalContent.style.border = "2px solid #000";
+/*---------------------------------------------------------*/
 
-
-    var btnClose = document.getElementById("btnClose");
-    btnClose.onclick = function() {
+    var btnClose = document.getElementById("btnClose"); //selevtion de l'element du html qui a l'id btnclose
+    btnClose.onclick = function() { //lorsque l'utilisateur clique sur le bouton fermé change la propriété du css pour cacher la fenetre modele
         modal.style.display = "none";
     }
 

@@ -52,7 +52,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (validator(input.value.trim())) {
             errorElement.style.display = 'none'; // Masque le message d'erreur si le champ est valide
             return true; // Retourne true si le champ est valide
-        } else {
+        } 
+        else {
             errorElement.style.display = 'block'; // Affiche le message d'erreur si le champ est invalide
             return false; // Retourne false si le champ est invalide
         }
@@ -234,25 +235,30 @@ document.addEventListener('DOMContentLoaded', function () {
         // Vérifie s'il y a une victoire
         if (checkWinner() === player) {
             score = 10; // Victoire immédiate
-        } else {
+        } 
+        else {
             // Vérifie s'il y a une possibilité de victoire au prochain coup
             gameState[move] = player === "X" ? "O" : "X";
             if (checkWinner() === player) {
                 score = 8; // Bloquer l'adversaire
-            } else {
+            } 
+            else {
                 // Réinitialise l'état du jeu
                 gameState[move] = null;
-                // Évalue d'autres critères
-                // Par exemple, occupation du centre, des coins, des côtés, etc.
+                // Évalue  critères
                 if (isCreatingOpportunity(move, player)) {
                     score = 6; // Créer une opportunité de gagner
-                } else if (isThreateningOpponent(move, player)) {
+                } 
+                else if (isThreateningOpponent(move, player)) {
                     score = 4; // Menace de l'adversaire
-                } else if (isInCenter(move)) {
+                } 
+                else if (isInCenter(move)) {
                     score = 3; // Occupation du centre
-                } else if (isInCorner(move)) {
+                } 
+                else if (isInCorner(move)) {
                     score = 2; // Occupation des coins
-                } else {
+                } 
+                else {
                     score = 1; // Occupation des côtés
                 }
             }
@@ -309,24 +315,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     function handleEndOfTurn() {
-        if (checkWinner()) {
-            setTimeout(() => {
+        if (checkWinner()) { //verifi s'il y a un gagant 
+            setTimeout(() => { //affiche le message approprié et agit en conséquence
                 if (currentPlayer === "X") {
                     alert("Vous avez gagné, votre formulaire va être envoyé.");
-                    form.submit();
-                } else {
+                    form.submit(); //envoie le form
+                } 
+                else {
                     alert("Vous avez perdu ! Votre formulaire ve être réinitialisé.");
-                    resetForm();
+                    resetForm(); //reinitialise le form
                 }
             }, 100);
-        } else if (!gameState.includes(null)) {
+        } 
+        else if (!gameState.includes(null)) { //si match null
             setTimeout(() => {
                 alert("Match nul ! Votre formulaire va être réinitialisé.");
-                resetForm();
+                resetForm(); //réinitialise le form
             }, 100);
-        } else {
-            currentPlayer = currentPlayer === "X" ? "O" : "X";
-            if (currentPlayer === "O") {
+        } 
+        else {
+            currentPlayer = currentPlayer === "X" ? "O" : "X"; //si le jeu continu change le joueur actuel
+            if (currentPlayer === "O") { //si c'est le tour de l'ordinateur, effectu mvmt
                 setTimeout(() => {
                     performComputerMove();
                 }, 100);
@@ -336,77 +345,84 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    function checkWinner() {
+    function checkWinner() { //parcours les conditions gagnantes pour vérifier s'il y a un gagnant 
         for (const condition of winningConditions) {
             const [a, b, c] = condition;
             if (gameState[a] && gameState[a] === gameState[b] && gameState[a] === gameState[c]) {
-                return true;
+                return true;// S'il y a un gagnant, retourne true
             }
         }
-        return false;
+        return false;// S'il n'y a pas de gagnant, retourne false
     }
 
     function resetGame() {
+        // Réinitialise l'état du jeu et remplit toutes les cellules avec du texte vide
+
         gameState = Array(9).fill(null);
         cells.forEach(cell => cell.textContent = "");
-        currentPlayer = "X";
+        currentPlayer = "X"; // Réinitialise le joueur actuel à X
     }
 
     function resetForm() {
-        // Réinitialisation du formulaire
+        // Réinitialisation du formulaire et l'affiche et masque le jeu 
         prenomInput.value = "";
         emailInput.value = "";
         remarqueInput.value = "";
         form.style.display = "block";
         gameContainer.style.display = "none";
-        resetGame();
+        resetGame(); // Réinitialise le jeu
     }
 
-    //cells.forEach(cell => cell.addEventListener("click", handleCellClick));
-	
+	// Ajoute des écouteurs d'événements pour les actions de glisser-déposer
     cells.forEach(cell => cell.addEventListener("drop", drop));
     cells.forEach(cell => cell.addEventListener("dragover", allowDrop));
-    //resetButton.addEventListener("click", resetGame);
-	
+
+    // Ajoute des écouteurs d'événements pour les actions de glisser
 	document.addEventListener("dragstart", drag);
     document.addEventListener("dragend", () => draggedImage = null);
 	
 });
 
-/*----------------------------------------------------------------*/
+/*--------------------------------------------*/
+
 
 /*------------------------------telephne --------------------------------------------*/
 
 function jouerSonnerie() {
+    //fonction pour jouer la sonnerie
     var audio = new Audio('../son/sonnerie2.mp3');
     audio.play();
 }
-document.addEventListener('copy', function(e) {
-    var parentElement = window.getSelection().anchorNode.parentNode;
+
+document.addEventListener('copy', function(e) { //ecouteur d'événements pour la copie de texte
+    var parentElement = window.getSelection().anchorNode.parentNode; //obtient l'élément parent du texte selectionné 
 
         // Vérifier si l'élément parent est un élément de numéro de téléphone
         if (parentElement.classList.contains('telephone')) {
-            var numeroCopie = parentElement.innerText.trim();
+            var numeroCopie = parentElement.innerText.trim(); //obtient de téléphone sélectionné    .tim() permzt de supprmer es espaces blancs au débu et fin chaine caract
             console.log('Numéro copié :', numeroCopie);
 
-            var numeroEntree = prompt('Si vous voulez appeler ce numéro : ' + numeroCopie + ', entrez-le de nouveau dans le champ ci-dessous puis validez');
-            if (numeroEntree !== null && numeroEntree === numeroCopie) {
-                jouerSonnerie();
+            var numeroEntree = prompt('Si vous voulez appeler ce numéro : ' + numeroCopie + ', entrez-le de nouveau dans le champ ci-dessous puis validez');// affiche une message avec une zone de texte pour entrer a nouveau le numéro 
+            if (numeroEntree !== null && numeroEntree === numeroCopie) { // si le numéro entré correspond au numéro copié
+                jouerSonnerie(); //joue la sonnerie
                 afficherMessage('Vous appelez ce numéro : ' + numeroCopie);
             }
+
         }
 });
 
 function afficherMessage(message) {
-    var modal = document.getElementById("myModal");
-    var modalContent = document.querySelector(".modal-content");
-    var messageElement = document.getElementById("message");
+    //fonction qui affiche un message dans la fenetre modale
+    
+    var modal = document.getElementById("myModal"); //obtient l'élément de la fenêtre modale et le message a afficher
+    
+    
+    var modalContent = document.querySelector(".modal-content"); // sélection l'élément du html qui à la classe css ".model-content"
+    var messageElement = document.getElementById("message");  // sélection l'élément du html qui à l'id message'
 
+    /*---------------------- CSS ------------------------*/
     messageElement.textContent = message;
     modal.style.display = "block";
-
-    
-
     modalContent.style.width = "30%"; // Réduire la largeur à 40%
     modalContent.style.left = "30%"; // Ajuster la position gauche pour centrer horizontalement
     modalContent.style.display = "flex";
@@ -414,10 +430,10 @@ function afficherMessage(message) {
     modalContent.style.justifyContent = "center";
     modalContent.style.alignItems = "center";
     modalContent.style.border = "2px solid #000";
+/*---------------------------------------------------------*/
 
-
-    var btnClose = document.getElementById("btnClose");
-    btnClose.onclick = function() {
+    var btnClose = document.getElementById("btnClose"); //selevtion de l'element du html qui a l'id btnclose
+    btnClose.onclick = function() { //lorsque l'utilisateur clique sur le bouton fermé change la propriété du css pour cacher la fenetre modele
         modal.style.display = "none";
     }
 
