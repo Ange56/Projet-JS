@@ -106,7 +106,7 @@ nav ul li{
 
 
 
-#page{/*contenu de la page*/
+#paragraph-container{/*contenu de la page*/
     display: none;/* pour cacher la page le temps du loader*/
     flex-direction: column;
 }
