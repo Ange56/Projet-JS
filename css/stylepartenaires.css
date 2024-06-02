@@ -12,7 +12,7 @@ nav{/*couleur de l'arrière plan et du texte*/
 }
 #menu{/*on veut que le menu soit un minimum responsive*/
     list-style-type: none;/*on enlève les puces des listes*/
-    display: flex;/*permet le responsive*/
+    display: none;/*cache le menu pendant le loader*/
     justify-content: space-between;/*les boutons du menu prennent toute la place*/
     text-align: center;
     margin-top: 0;/*aucun espace avant le menu*/
@@ -103,8 +103,13 @@ nav ul li{
 
 
 
-/*corps de la page*/
-
+/*-----------corps de la page-------*/
+#page{/*contenu de la page*/
+    display: none;/* pour cacher la page le temps du loader*/
+    flex-direction: column;
+    padding-right: 10%;/*marge à droite*/
+    padding-left:10%;/*marge à gauche*/
+}
 
 h1{              /*on définit la police des titres1*/
     font-family: 'Lalezar';
@@ -184,15 +189,37 @@ h1{              /*on définit la police des titres1*/
 }
 
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0, 0.5);
+    
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    text-align: center;
+   
+}
+
 
 
 /*FOOTER*/
 footer{
-    background-color: black;/*couleur de fond du footer*/
     font-family: 'Roboto', sans-serif;
 }
 table{
-    display: flex;/*tableau responsive*/
+    display: none;/*cacher le temps du loader*/
     flex-direction: column;
     padding-right: 10%;
     padding-left:10%;
@@ -270,3 +297,68 @@ table, td, th{/*bordure du tableau*/
 
 
 */
+
+
+
+
+/*------------HORLOGE---------------*/
+.segment0 { left: 2.5px; top: 0.625px; width: 7.5px; height: 0px; }/*20px to 10px divide par 2*/
+.segment1 { left: 0.625px; top: 2.5px; width: 0px; height: 7.5px; }
+.segment2 { left: 11.875px; top: 2.5px; width: 0px; height: 7.5px; }
+.segment3 { left: 2.5px; top: 11.875px; width: 7.5px; height: 0px; }
+.segment4 { left: 0.625px; top: 13.75px; width: 0px; height: 7.5px; }
+.segment5 { left: 11.875px; top: 13.75px; width: 0px; height: 7.5px; }
+.segment6 { left: 2.5px; top: 23.125px; width: 7.5px; height: 0px; }
+
+.led {
+    position: absolute;
+    border-radius: 1.25px 1.25px 1.25px 1.25px;
+    height : 1.25px;
+    width : 1.25px;
+    background: white;
+
+}
+
+.segment {
+    position: absolute;
+    border-radius: 1.25px;
+    border: 1.25px solid white;
+    transition: all 0.2s linear;
+}
+
+.shiftedClock{
+    position: absolute;
+    top:37.5px;
+    left:12.5px;
+}
+
+.clock > div {
+    list-style: none;
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 15px;
+    height: 25px;
+}
+
+.clock > .colon {
+    font-size: 12.5px;
+    height: 15px;
+    width: 5px;
+    top: -9.375px;
+    color: white;
+    text-align: center;
+}
+
+.off {
+    transition: all 0.2s linear;
+    opacity: 0.2;
+}
+
+
+/*----chrono----*/
+#chrono{
+    font-size: 0.8em;
+    width : 100px;
+}

@@ -16,7 +16,7 @@ nav{/*couleur de l'arrière plan et du texte*/
 }
 #menu{/*on veut que le menu soit un minimum responsive*/
     list-style-type: none;/*on enlève les puces des listes*/
-    display: flex;/*permet le responsive*/
+    display: none;/*cache le menu pendant le loader*/
     justify-content: space-between;/*les boutons du menu prennent toute la place*/
     text-align: center;
     margin-top: 0;/*aucun espace avant le menu*/
@@ -129,7 +129,7 @@ label{/*police des titres des cases à remplir*/
     color:red;
 }
 #page{/*corps de la page*/
-    display: flex;/*tout en responsive*/
+    display: none;/* pour cacher la page le temps du loader*/
     flex-direction: column;
     padding-right: 10%;
     padding-left:10%;
@@ -183,9 +183,105 @@ form{
     border-radius: 5px;
     padding: 4px;
 }
-#fin:hover{
-    background-color: #616161;/*quand on passe sur le bouton pour envoyer, il change de couleur*/
+.error-message {
+    color: grey;
+    font-size: 12px;
+    display: none; /* Hide error messages by default */
 }
+
+
+
+/*----------------------- jeu ---------------------------*/
+#jeu{
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+    font-size: 20px;
+}
+/*----------*/
+#gameContainer{
+    display: none;
+
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    justify-content: center;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border: 1px solid #000;
+    font-size: 2em;
+}
+
+
+
+
+.draggable-images {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.draggable-images #cross {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    cursor: grab;
+    
+}
+.cell #cross {
+    width: 50px;
+    height: 50px;
+}
+
+
+/*-------------------------------------------------------*/
+
+
+
+
+
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0, 0.5);
+    
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    text-align: center;
+   
+}
+
+
+
+
+
+
 
 
 
@@ -196,11 +292,10 @@ form{
 
 /*FOOTER*/
 footer{
-    background-color: black;/*couleur de fond du footer*/
     font-family: 'Roboto', sans-serif;
 }
 table{
-    display: flex;/*tableau responsive*/
+    display: none;/*cacher le temps du loader*/
     flex-direction: column;
     padding-right: 10%;
     padding-left:10%;
@@ -244,4 +339,70 @@ table td,th,tr{/*couleurs pour les lignes du tableau qu'on ne veut pas voir*/
 
 table, td, th{/*bordure du tableau*/
     border: 1px solid;
+}
+
+
+
+
+
+/*------------HORLOGE---------------*/
+.segment0 { left: 2.5px; top: 0.625px; width: 7.5px; height: 0px; }/*20px to 10px divide par 2*/
+.segment1 { left: 0.625px; top: 2.5px; width: 0px; height: 7.5px; }
+.segment2 { left: 11.875px; top: 2.5px; width: 0px; height: 7.5px; }
+.segment3 { left: 2.5px; top: 11.875px; width: 7.5px; height: 0px; }
+.segment4 { left: 0.625px; top: 13.75px; width: 0px; height: 7.5px; }
+.segment5 { left: 11.875px; top: 13.75px; width: 0px; height: 7.5px; }
+.segment6 { left: 2.5px; top: 23.125px; width: 7.5px; height: 0px; }
+
+.led {
+    position: absolute;
+    border-radius: 1.25px 1.25px 1.25px 1.25px;
+    height : 1.25px;
+    width : 1.25px;
+    background: white;
+
+}
+
+.segment {
+    position: absolute;
+    border-radius: 1.25px;
+    border: 1.25px solid white;
+    transition: all 0.2s linear;
+}
+
+.shiftedClock{
+    position: absolute;
+    top:37.5px;
+    left:12.5px;
+}
+
+.clock > div {
+    list-style: none;
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 15px;
+    height: 25px;
+}
+
+.clock > .colon {
+    font-size: 12.5px;
+    height: 15px;
+    width: 5px;
+    top: -9.375px;
+    color: white;
+    text-align: center;
+}
+
+.off {
+    transition: all 0.2s linear;
+    opacity: 0.2;
+}
+
+
+/*----chrono----*/
+#chrono{
+    font-size: 0.8em;
+    width : 100px;
 }
