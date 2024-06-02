@@ -280,3 +280,7 @@ fieldset > div {
     font-size: 18px; /* Increase font size */
         
 }
+/*filter test*/
+.hidden {
+    display: none;
+}
