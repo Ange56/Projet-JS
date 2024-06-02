@@ -9,6 +9,9 @@
         <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Marko+One&family=Roboto&family=Stint+Ultra+Expanded&display=swap" rel="stylesheet"><!--importation de Roboto et Lalezar-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"><!--importation des icones de fontawesome-->
         <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Lalezar&family=Marko+One&family=Roboto&display=swap" rel="stylesheet"><!--importation de Audiowide-->
+        <script src="../js/thematique.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
         <title> Thématiques </title>
     </head>
     <body>
@@ -85,26 +88,33 @@
                 <tr>
                     <td class="col">
                         Adresse : CS 42807 20 rue Cuirassé Bretagne 29200 Brest
-                        <br>Téléphone : +33 2 98 03 84 00
+                        <br>Téléphone : <span class="telephone">+33 2 98 03 84 00</span>
                     </td>
                     <td class="col">
                         Adresse : 33 Q Avenue du Champ de Manœuvres 44470 Carquefou
-                        <br>Téléphone : +33 2 30 13 05 60
+                        <br>Téléphone :<span class="telephone"> +33 2 30 13 05 60</span>
                     </td>
                     <td class="col">
                         Adresse : 8 Avenue Croix Guérin 14000 Caen
-                        <br>Téléphone : +33 2 30 31 03 20
+                        <br>Téléphone :<span class="telephone"> +33 2 30 31 03 20</span>
                     </td>
                     <td class="col">
                         Adresse : Campus RSB 2 rue Robert d’Abrissel 35065 Rennes
-                        <br>Téléphone : +33 2 30 13 02 50
+                        <br>Téléphone :<span class="telephone"> +33 2 30 13 02 50 </span>
                     </td>
                     <td class="col">
                         Adresse : Campus Saint Jean 5 Rue Maurice Labrousse 92160 Antony
-                        <br>Téléphone : +33 2 98 03 84 00
+                        <br>Téléphone :<span class="telephone"> +33 2 98 03 84 00 </span>
                     </td>
                 </tr>
             </table>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <p id="message"></p>
+                    <button id="btnClose">Fermer</button>
+                </div>
+            </div>
+
             <br>
             <table id="tab2" cellpadding="10"><!--autre tableau pour avoir seulement 3 colonnes avec nos noms et liens vers linkedin-->
                 <tr>
