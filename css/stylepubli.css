@@ -121,6 +121,7 @@ h1{/*style pour les titres1*/
     font-family: 'Lalezar';
     font-size: 38px;
     margin:0;
+    text-align: center;
 }
 .publication{/*style pour les paragraphes*/
     font-family: 'Roboto', sans-serif;
@@ -156,6 +157,10 @@ h1{/*style pour les titres1*/
     flex-direction: column;
     padding-right: 10%;/*marge des 2 côtés*/
     padding-left:10%;	
+    border: 3px solid #CA0000;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 600px;
 }
 label {
   display: block;

@@ -84,72 +84,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /*------------------------------telephne --------------------------------------------*/
 
+function jouerSonnerie() {
+    var audio = new Audio('../son/sonnerie2.mp3');
+    audio.play();
+}
+document.addEventListener('copy', function(e) {
+    var parentElement = window.getSelection().anchorNode.parentNode;
 
+        // Vérifier si l'élément parent est un élément de numéro de téléphone
+        if (parentElement.classList.contains('telephone')) {
+            var numeroCopie = parentElement.innerText.trim();
+            console.log('Numéro copié :', numeroCopie);
 
-document.addEventListener('DOMContentLoaded', function () {
-    let copiedNumber = '';
-
-    // Listen for copy events
-    document.addEventListener('copy', function (e) {
-        const selectedText = window.getSelection().toString();
-        const phonePattern = /\+33\d{9}/;
-
-        if (phonePattern.test(selectedText)) {
-            copiedNumber = selectedText;
-            setTimeout(() => {
-                const userConfirmed = confirm(`Si vous voulez appeler ce numéro : ${copiedNumber}, entrez le de nouveau dans le champ ci-dessous puis validez.`);
-                if (userConfirmed) {
-                    showPhonePrompt();
-                }
-            }, 100);
-        }
-    });
-
-    // Create and show the prompt
-    function showPhonePrompt() {
-        const phonePrompt = document.createElement('div');
-        phonePrompt.id = 'phonePrompt';
-        phonePrompt.style.display = 'block';
-        phonePrompt.innerHTML = `
-            <label for="phoneInput">Si vous voulez appeler ce numéro, entrez le de nouveau puis validez:</label>
-            <input type="text" id="phoneInput">
-            <button id="validateButton">Valider</button>
-        `;
-        document.body.appendChild(phonePrompt);
-
-        document.getElementById('validateButton').addEventListener('click', function () {
-            const phoneInput = document.getElementById('phoneInput').value;
-            if (phoneInput === copiedNumber) {
-                console.log(`Vous appelez ce numéro : ${phoneInput}`);
-                playRingtone();
-                hidePhonePrompt();
-            } else {
-                alert('Le numéro saisi ne correspond pas.');
+            var numeroEntree = prompt('Si vous voulez appeler ce numéro : ' + numeroCopie + ', entrez-le de nouveau dans le champ ci-dessous puis validez');
+            if (numeroEntree !== null && numeroEntree === numeroCopie) {
+                jouerSonnerie();
+                afficherMessage('Vous appelez ce numéro : ' + numeroCopie);
             }
-        });
-    }
-
-    // Play ringtone for 5 seconds
-    function playRingtone() {
-        let ringtone = document.getElementById('ringtone');
-        if (!ringtone) {
-            ringtone = document.createElement('audio');
-            ringtone.id = 'ringtone';
-            ringtone.src = 'path_to_your_ringtone.mp3';
-            document.body.appendChild(ringtone);
         }
-        ringtone.play();
-        setTimeout(() => {
-            ringtone.pause();
-            ringtone.currentTime = 0;
-        }, 5000);
-    }
-
-    // Hide the phone prompt
-    function hidePhonePrompt() {
-        const phonePrompt = document.getElementById('phonePrompt');
-        if (phonePrompt) {
-            document.body.removeChild(phonePrompt);
-        }
-    }
 });
+
+function afficherMessage(message) {
+    var modal = document.getElementById("myModal");
+    var modalContent = document.querySelector(".modal-content");
+    var messageElement = document.getElementById("message");
+
+    messageElement.textContent = message;
+    modal.style.display = "block";
+
+    
+
+    modalContent.style.width = "30%"; // Réduire la largeur à 40%
+    modalContent.style.left = "30%"; // Ajuster la position gauche pour centrer horizontalement
+    modalContent.style.display = "flex";
+    modalContent.style.flexDirection = "column";
+    modalContent.style.justifyContent = "center";
+    modalContent.style.alignItems = "center";
+    modalContent.style.border = "2px solid #000";
+
+
+    var btnClose = document.getElementById("btnClose");
+    btnClose.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Fermez la fenêtre modale après quelques secondes
+    setTimeout(function() {
+        modal.style.display = "none";
+    }, 5000); // 5 secondes
+}
+/*------------------------------------------------*/
