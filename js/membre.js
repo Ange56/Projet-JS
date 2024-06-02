@@ -1,4 +1,3 @@
-//membre/*------------------------------telephne --------------------------------------------*/
 
 function jouerSonnerie() {
     var audio = new Audio('../son/sonnerie2.mp3');
@@ -16,9 +15,6 @@ document.addEventListener('copy', function(e) {
             if (numeroEntree !== null && numeroEntree === numeroCopie) {
                 jouerSonnerie();
                 afficherMessage('Vous appelez ce numéro : ' + numeroCopie);
-            }
-            if(numeroEntree != numeroCopie){
-                alert("le numéro n'est pas correct");
             }
         }
 });
@@ -52,4 +48,3 @@ function afficherMessage(message) {
         modal.style.display = "none";
     }, 5000); // 5 secondes
 }
-/*------------------------------------------------*/

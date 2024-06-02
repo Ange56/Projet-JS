@@ -232,11 +232,36 @@ p{
 
 
 
+#button{
+    position: relative;
+    bottom: 20px; /* Place the button at the bottom of the page */
+    left: 95%; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    border-radius: 50px; /* Rounded corners */
+    height: 40px;
+    width: 40px;
+    
+}
+#button:hover {
+    color: rgb(255, 255, 255);
+    background: rgb(126, 126, 126);
+  }
 
 
+.larger-image {
+    width: 150%; /* Ajustez cette valeur selon vos besoins */
+    height: auto;
+}
 
+.smaller-image {
+    width: 50%; /* Ajustez cette valeur selon vos besoins */
+    height: auto;
+}
 
-
+/*--------------------------------------------------*/
 
 .modal {
     display: none;
@@ -248,6 +273,7 @@ p{
     height: 100%;
     overflow: auto;
     background-color: rgb(0, 0, 0, 0.5);
+    
     
 }
 

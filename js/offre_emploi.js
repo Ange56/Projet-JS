@@ -17,9 +17,6 @@ document.addEventListener('copy', function(e) {
                 jouerSonnerie();
                 afficherMessage('Vous appelez ce numéro : ' + numeroCopie);
             }
-            if(numeroEntree != numeroCopie){
-                alert("le numéro n'est pas correct");
-            }
         }
 });
 
